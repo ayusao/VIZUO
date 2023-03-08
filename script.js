@@ -1,29 +1,29 @@
 function lead(n){
 
     switch(n){
-        case "1":
+        case 1:
             location.href = 'heapSort/heapMain.html';
             break;
-        case "2":
+        case 2:
             location.href = 'heapSort/heapMain.html';
             break;
-        case "3":
+        case 3:
             location.href = 'heapSort/heapMain.html';
             break;
-        case "4":
+        case 4:
             location.href = 'heapSort/heapMain.html';
             break;
-        case "5":
+        case 5:
             location.href = 'heapSort/heapMain.html';
             break;
-        case "6":
+        case 6:
             location.href = 'heapSort/heapMain.html';
             break;
-        case "7":
-            location.href = 'heapSort/heapMain.html';
+        case 7:
+            location.href = 'radixSort/radixMain.html';
             break;
         default:
-            location.href = 'heapSort/heapMain.html';
+            location.href = 'radixSort/radixMain.html';
             break;
     }
 }
