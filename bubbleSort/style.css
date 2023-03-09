@@ -1,0 +1,30 @@
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    background-color: beige;
+}
+  
+h1 {
+    text-align: center;
+    padding: 20px;
+    font-size: 40px;
+}
+  
+#container1{
+    height: 200px;
+    display: flex;
+    align-items: flex-end;
+}
+body{
+    display:flex;
+    align-items: center;
+    flex-direction: column;
+}
+.bar{
+    width: 10px;
+    margin: 4px;
+    padding: 7px;
+    background-color: black;
+}

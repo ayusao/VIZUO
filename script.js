@@ -2,10 +2,10 @@ function lead(n){
 
     switch(n){
         case 1:
-            location.href = 'heapSort/heapMain.html';
+            location.href = 'bubbleSort/bubble.html';
             break;
         case 2:
-            location.href = 'heapSort/heapMain.html';
+            location.href = 'insertionSort/insertion.html';
             break;
         case 3:
             location.href = 'heapSort/heapMain.html';
