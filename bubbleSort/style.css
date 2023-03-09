@@ -22,6 +22,9 @@ body{
     align-items: center;
     flex-direction: column;
 }
+hr{
+    margin: 10px;
+}
 .bar{
     width: 20px;
     margin: 4px;
@@ -30,7 +33,9 @@ body{
 }
 .button{
     font-size: 20px;
-    margin: 8px;
+    
+    margin: 15px 6px;
+    
     background-color: beige;
     border: 3px solid black;
 }
