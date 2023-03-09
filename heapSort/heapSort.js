@@ -82,6 +82,7 @@ async function Heapify(n, i) {
     
       // Recursively Hapify the affected sub-tree
       await Heapify(n, largest);
+
     }
   }
     
@@ -105,20 +106,25 @@ async function Heapify(n, i) {
       blocks[i].childNodes[0].innerText = 
       blocks[0].childNodes[0].innerText;
       blocks[0].childNodes[0].innerText = temp2;
+      
+      blocks[i].style.backgroundColor = "cadetblue";
     
       await new Promise((resolve) =>
         setTimeout(() => {
           resolve();
         }, 250)
       );
-    
       // Call max Heapify on the reduced heap
       await Heapify(i, 0);
     }
   }
+  function newRandom(){
+    location.reload();
+  }
+ getArray();
+ getIndex();
 
-  getArray();
-
-  getIndex();
-
+function play()
+{
   HeapSort(20);
+}
