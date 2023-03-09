@@ -39,3 +39,6 @@ button {
     background-color:brown;
     border-color: black;
 }
+button.hover{
+    background-color:aquamarine;
+}
