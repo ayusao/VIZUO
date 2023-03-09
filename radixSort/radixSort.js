@@ -105,7 +105,7 @@ async function radixsort(arr,n)
             await new Promise((resolve) =>
             setTimeout(() => {
               resolve();
-            }, 1000)
+            }, 1500)
           );
             countSort(arr, n, exp)
            }
@@ -114,8 +114,12 @@ async function radixsort(arr,n)
  
 let arr = [];
  
-// Function Call
+function newRandom(){
+    location.reload();
+  }
 getArray();
 getIndex();
+
+function play(){
 radixsort(arr, 20);
- 
+}

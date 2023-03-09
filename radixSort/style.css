@@ -3,7 +3,7 @@
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
-    background-color: beige;
+    background-color: black;
 }
   
 .header {
@@ -11,8 +11,14 @@
     text-align: center;
 }
   
+h1{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    border-radius: 20%;
+    font-weight: 900;
+    font-stretch: ultra-expanded;
+    color: #fff;
+}
 #array {
-    background-color: white;
     height: 270px;
     width: 598px;
     margin: auto;
@@ -30,7 +36,7 @@
   
 .block_id {
     position: absolute;
-    color: black;
+    color: #fff;
     margin-top: -20px;
     width: 100%;
     text-align: center;
@@ -38,7 +44,7 @@
   
 .block_id2 {
     position: absolute;
-    color: black;
+    color: #fff;
     margin-top: 22px;
     width: 100%;
     text-align: center;
@@ -53,7 +59,7 @@
   
 .block_id3 {
     position: absolute;
-    color: black;
+    color: #fff;
     margin-top: 1px;
     width: 100%;
     text-align: center;
@@ -63,4 +69,34 @@
     height: 20px;
     width: 598px;
     margin: auto;
+}
+.btn2 {
+    margin: 30px 6px;
+    position:absolute;
+    left: 50%;
+    padding: 7px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 20px;
+    color:#fff;
+   background-color: #6b5b95;
+}
+.btn1 {
+    margin: 30px 6px;
+    position: absolute;
+    left: 38%;
+    padding: 7px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 20px;
+    color:#fff;
+   background-color: #6b5b95;
+}
+.btn1:hover{
+    background-color: cadetblue;
+}
+.btn2:hover{
+    background-color: cadetblue;
 }
