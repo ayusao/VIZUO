@@ -82,18 +82,12 @@ function countSort(arr,n,exp)
         for (i = 0; i < n; i++)
         {
          arr[i] = output[i];
+         blocks[i].style.height = `${output[i]*3}px`;
+         blocks[i].childNodes[0].innerText = output[i];
         }
-
-setTimeout(function(){
-      for (i = 0; i < n; i++)
-      {
-       blocks[i].style.height = `${output[i]*3}px`;
-       blocks[i].childNodes[0].innerText = output[i];
-      }
-   },1000); 
 }
 
-function radixsort(arr,n)
+async function radixsort(arr,n)
 {
     var blocks = document.querySelectorAll(".block");
     for(var j =0;j<20;j++)
@@ -108,6 +102,11 @@ function radixsort(arr,n)
         // exp is 10^i where i is current digit number
         for (let exp = 1; Math.floor(m / exp) > 0; exp *= 10)
            { 
+            await new Promise((resolve) =>
+            setTimeout(() => {
+              resolve();
+            }, 1000)
+          );
             countSort(arr, n, exp)
            }
 }
