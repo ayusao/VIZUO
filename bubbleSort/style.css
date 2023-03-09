@@ -13,7 +13,7 @@ h1 {
 }
   
 #container1{
-    height: 200px;
+    height: 300px;
     display: flex;
     align-items: flex-end;
 }
@@ -23,8 +23,14 @@ body{
     flex-direction: column;
 }
 .bar{
-    width: 10px;
+    width: 20px;
     margin: 4px;
     padding: 7px;
     background-color: black;
+}
+.button{
+    font-size: 20px;
+    margin: 8px;
+    background-color: beige;
+    border: 3px solid black;
 }
