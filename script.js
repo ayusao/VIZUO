@@ -5,16 +5,16 @@ function lead(n){
             location.href = 'bubbleSort/bubble.html';
             break;
         case 2:
-            location.href = 'insertionSort/insertion.html';
+            location.href = 'selectionSort/selection.html';
             break;
         case 3:
-            location.href = 'heapSort/heapMain.html';
+            location.href = 'insertionSort/insertion.html';
             break;
         case 4:
-            location.href = 'heapSort/heapMain.html';
+            location.href = 'quickSort/quick.html';
             break;
         case 5:
-            location.href = 'heapSort/heapMain.html';
+            location.href = 'mergeSort/merge.html';
             break;
         case 6:
             location.href = 'heapSort/heapMain.html';
@@ -23,7 +23,7 @@ function lead(n){
             location.href = 'radixSort/radixMain.html';
             break;
         default:
-            location.href = 'radixSort/radixMain.html';
+            location.href = 'shellSort/shell.html';
             break;
     }
 }
