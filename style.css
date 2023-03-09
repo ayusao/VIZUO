@@ -6,7 +6,7 @@
     padding: 0;
     text-decoration: none;
     box-sizing: border-box;
-    background-color:beige;
+    background-color:rgb(17,17,17);
 }
 
 h2{
@@ -14,12 +14,14 @@ h2{
     padding: 10 10px;
     top : 20%;
     font-size: 60px;
+    color:beige;
 }
 
 p{
     position: absolute;
     padding: 10 10px;
     bottom : 20%;
+    color:beige;
 }
 
 body {
@@ -40,7 +42,6 @@ button {
     border-color: black;
 }
 
-button:hover{
-    color: black;
+.btn:hover{
     background-color: cadetblue;
 }

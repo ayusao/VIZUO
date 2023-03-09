@@ -5,10 +5,10 @@ function lead(n){
             location.href = 'bubbleSort/bubble.html';
             break;
         case 2:
-            location.href = 'selectionSort/selection.html';
+            location.href = 'insertionSort/insertion.html';
             break;
         case 3:
-            location.href = 'insertionSort/insertion.html';
+            location.href = 'selectionSort/selection.html';
             break;
         case 4:
             location.href = 'quickSort/quick.html';
