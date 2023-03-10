@@ -1,36 +1,49 @@
 const n=20;
 const array =[];
-
+var sortingProcess;
 initialize();
 //for generating random values
-function initialize(){
-    for (var i=0; i<n; i++)
-    {
-        array[i]= Math.random(); //random number betn 0 and 1
+function initialize() {
+    // Stop any ongoing sorting process
+    if (sortingProcess) {
+      clearTimeout(sortingProcess);
     }
+  
+    // Generate a new array of random values
+    for (var i = 0; i < n; i++) {
+      array[i] = Math.random();
+    }
+  
     showbars();
-}
+  }
+  
 
-function play(){
+
+function play() {
     const copyarray = [...array];
     const swapping = bubbleSort(copyarray);
     animate(swapping);
-}
-
-function animate(swaps){
-    if (swaps.length==0){
-        showbars();
-        return;
+  }
+  function animate(swaps) {
+    if (swaps.length == 0) {
+      showbars();
+      return;
     }
-    const [i, j] = swaps.shift(); //removes first
+  
+    // Check if a new array has been generated
+    if (swaps.length == 1 && swaps[0][0] == -1) {
+      return;
+    }
+  
+    const [i, j] = swaps.shift();
     [array[i], array[j]] = [array[j], array[i]];
-    showbars([i,j]); //current values being swapped
-    setTimeout(function()
-    {
-        animate(swaps);
+    showbars([i, j]);
+  
+    sortingProcess = setTimeout(function () {
+      animate(swaps);
     }, 100);
-}
-
+  }
+  
 function bubbleSort(array){
     const swaps =[];
         for (var i=0; i<array.length; i++)
