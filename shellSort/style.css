@@ -25,3 +25,19 @@
   bottom:0px;
   transition: 0.2s all ease;
 }
+.return {
+  margin: 30px 6px;
+  position: absolute;
+  bottom : 0%;
+  right: 0%;
+  padding: 7px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 20px;
+  color:#fff;
+ background-color: #6b5b95;
+}
+.return:hover{
+  background-color: brown;
+}
