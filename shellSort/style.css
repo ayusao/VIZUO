@@ -1,0 +1,27 @@
+*{
+  margin:0px;
+  padding:0px;
+  box-sizing:border-box;
+  background-color:beige;
+}
+
+.header{
+  font-size: 20px;
+  text-align: center;
+}
+
+#bar_container{
+  background-color: white;
+  height:300px;
+  width:598px;
+  margin:auto;
+  position:relative;
+  margin-top:64px;
+}
+.bar{
+  width:28px;
+  background-color:yellow;
+  position:absolute;
+  bottom:0px;
+  transition: 0.2s all ease;
+}
