@@ -1,17 +1,62 @@
 let container = document.getElementById("bar_container");
-const numOfBars=20;
+let numOfBars=20;
 const maxValue=100;
 const minValue=5;
 let unsortedArray=[];
 let sort_btn=document.getElementById("sort_btn");
+let new_array_btn=document.getElementById("new_array");
+let delay = 260;
+let delayElement = document.querySelector('#speed_input');
+let arraySize=document.querySelector("#array_size");
+
+function deleteChild() {
+  container.innerHTML = '';
+}
+delayElement.addEventListener('input', function(){
+    delay = 320 - parseInt(delayElement.value);//the more the slider goes right, lesser the delay value ie faster the speed
+});
+
+arraySize.addEventListener('input',function(){
+  container.style.width=`${(598/20)*arraySize.value}px`;
+  numOfBars=parseInt(arraySize.value);
+  generateBar(parseInt(arraySize.value));
+})
+
+function disableSortingBtn(){
+  sort_btn.style.backgroundColor="grey";
+  document.querySelector("#sort_btn").disabled = true;
+}
+
+function enableSortingBtn(){
+  sort_btn.style.backgroundColor="#6b5b95";
+  document.querySelector("#sort_btn").disabled = false;
+}
+
+function disableNewArrayBtn(){
+  new_array_btn.style.backgroundColor="grey";
+  document.querySelector("#new_array").disabled = true;
+}
+
+function enableNewArrayBtn(){
+  new_array_btn.style.backgroundColor="#6b5b95";
+  document.querySelector("#new_array").disabled = false;
+}
+
+function disableArraySizeBtn(){
+  document.querySelector("#array_size").disabled=true;
+}
+function enableArraySizeBtn(){
+  document.querySelector("#array_size").disabled=false;
+}
 
 function generateRandomNum(min,max)
 {
   return (Math.floor(Math.random()*(max-min)+min));
 }
-function generateBar()
+function generateBar(numOfBars)
 {
-
+  deleteChild();
+  
   for(let i=0;i<numOfBars;i++)
   {
     let bars=document.createElement("div");
@@ -51,25 +96,10 @@ async function mergeSort(arr) {
     if (left[i] < right[j]) {
       arr[k] = left[i];
       i++;
-      // bars[k].style.height = arr[k] * 3 + "px";
-      // bars[k].style.backgroundColor = "red";
-      // bars[k].innerText = arr[k];
-      //await sleep(speedFactor);
     } else {
       arr[k] = right[j];
       j++;
-      //bars[k + middle].style.height = arr[k] * 3 + "px";
-      //bars[k + middle].style.backgroundColor = "orange";
-      // bars[k].innerText = arr[k];
-      //await sleep(speedFactor);
     }
-    //shift to right side
-    //console.log(k);
-    //bars[k].style.height = arr[k] * heightFactor + "px";
-    //bars[k].style.backgroundColor = "lightgreen";
-
-    // bars[k + middle].style.height = arr[k] * heightFactor + "px";
-    // bars[k + middle].style.backgroundColor = "yellow";
 
     //visualize it for right and left side
     bars[k].style.height = arr[k] * 3 + "px";
@@ -79,9 +109,7 @@ async function mergeSort(arr) {
       console.log(arr[k] * 3);
       bars[k + arr.length].style.backgroundColor = "yellow";
     }
-    await timeDelay(100);
-    //bars[k].innerText = arr[k];
-
+    await timeDelay(delay);
     k++;
   }
 
@@ -89,7 +117,7 @@ async function mergeSort(arr) {
     arr[k] = left[i];
     bars[k].style.height = arr[k] *3 + "px";
     bars[k].style.backgroundColor = "lightgreen";
-    await timeDelay(100);
+    await timeDelay(delay);
     i++;
     k++;
   }
@@ -98,99 +126,24 @@ async function mergeSort(arr) {
     arr[k] = right[j];
     bars[k].style.height = arr[k] * 3 + "px";
     bars[k].style.backgroundColor = "lightgreen";
-    await timeDelay(100);
+    await timeDelay(delay);
     j++;
     k++;
   }
-
-  // for (let i = 0; i < arr.length; i++) {
-  //   bars[i].style.height = arr[i] * heightFactor + "px";
-  //   bars[i].style.backgroundColor = "lightgreen";
-  //   await sleep(speedFactor);
-  // }
-
-  /*for (let k = 0; k < bars.length; k++) {
-    bars[k].style.backgroundColor = "aqua";
-  }*/
-
   return arr;
 }
 
-/*function mergeSortD(arr, start, end) {
-  if (arr.length < 2) {
-    return arr;
-  }
+new_array_btn.addEventListener("click",function(){
+  enableSortingBtn();
+  enableArraySizeBtn();
+  generateBar(numOfBars);
+})
 
-  let middle = Math.floor((start + end) / 2);
-  let left = arr.slice(start, middle);
-  let right = arr.slice(middle, end);
-
-  mergeSort(left);
-  mergeSort(right);
-}*/
-
-/*async function merge(array,begg,mid,end)
-{
-   let bars=document.querySelectorAll(".bar");
-   //let selected=documet.querySelectorAll(".bar");
-   let left=array.slice(begg,mid+1);
-   let right=array.slice(mid+1,end);
-   await timeDelay(100)
-   let i=0,j=0,k=begg;
-   while(i<left.length && j<right.length)
-   {
-    if(left[i]<=right[j])
-    {
-      array[k]=left[i];
-      i++;
-    }
-    else
-    {
-      array[k]=right[j];
-      j++;
-    }
-    bars[k].style.height=`${array[k]*3}px`;
-    bars[k].style.backgroundColor="lightgreen";
-    if(k+array.length<bars.length)
-    {
-      bars[k+array.length].style.height=arr[k]*heightFactor+"px";
-      console.log(array[k]*heightFactor);
-      bars[k+array.length].style.backgroundColor="yellow";
-    }
-    await timeDelay(100);
-    k++;
-   }
-   while(i<left.length)
-   {
-    array[k]=left[i];
-    bars[k].style.height=`${array[k]*3}px`;
-    bars[k].style.backgroundColor="lightgreen";
-    await timeDelay(100);
-    k++;
-    i++;
-   }
-   while(j<right.length)
-   {
-    array[k]=right[j];
-    bars[k].style.height=`${array[k]*3}px`;
-    bars[k].style.backgroundColor="lightgreen";
-    await timeDelay(100);
-    k++;
-    j++;    
-   }
-}
-
-async function mergeSort(array,begg,end)
-{
-  if(begg<end)
-  {
-    const midd=Math.floor((begg+end)/2);
-    await mergeSort(array,begg,midd);
-    await mergeSort(array,midd+1,end);
-    await merge(array,begg,midd,end);
-  }
-}*/
-sort_btn.addEventListener("click",function(){
- let sortedArray= mergeSort(unsortedArray);
+sort_btn.addEventListener("click", async function(){
+ disableSortingBtn();
+ disableNewArrayBtn();
+ disableArraySizeBtn();
+ await mergeSort(unsortedArray);
+ enableNewArrayBtn();
 });
-generateBar();
+generateBar(numOfBars);

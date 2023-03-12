@@ -1,14 +1,60 @@
 let container = document.getElementById("bar_container");
-const numOfBars = 20;
+let numOfBars = 20;
 const maxValue = 100;
 const minValue = 5;
 let unsortedArray = [];
 let sort_btn = document.getElementById("sort_btn");
+let new_array_btn=document.getElementById("new_array");
+let delay = 260;
+let delayElement = document.querySelector('#speed_input');
+let arraySize=document.querySelector("#array_size")
+
+function deleteChild() {
+    container.innerHTML = '';
+  }
+
+delayElement.addEventListener('input', function(){
+    delay = 320 - parseInt(delayElement.value);//the more the slider goes right, lesser the delay value ie faster the speed
+});
+
+arraySize.addEventListener('input',function(){
+    container.style.width=`${(598/20)*arraySize.value}px`;
+    numOfBars=parseInt(arraySize.value);
+    generateBar(parseInt(arraySize.value));
+})
+
+function disableSortingBtn(){
+  sort_btn.style.backgroundColor="grey";
+  document.querySelector("#sort_btn").disabled = true;
+}
+function enableSortingBtn(){
+  sort_btn.style.backgroundColor="#6b5b95";
+  document.querySelector("#sort_btn").disabled = false;
+}
+
+function disableNewArrayBtn(){
+  new_array_btn.style.backgroundColor="grey";
+  document.querySelector("#new_array").disabled = true;
+}
+function enableNewArrayBtn(){
+  new_array_btn.style.backgroundColor="#6b5b95";
+  document.querySelector("#new_array").disabled = false;
+}
+
+function disableArraySizeBtn(){
+    document.querySelector("#array_size").disabled=true;
+  }
+  function enableArraySizeBtn(){
+    document.querySelector("#array_size").disabled=false;
+  }
 
 function generateRandomNum(min, max) {
     return (Math.floor(Math.random() * (max - min) + min));
 }
-function generateBar() {
+
+function generateBar(numOfBars) {
+    deleteChild();
+
     for (let i = 0; i < numOfBars; i++) {
         let bars = document.createElement("div");
         bars.classList.add("bar");
@@ -32,47 +78,58 @@ async function shellSort(array) {
     let Gap=numOfBars;
     let temp;
     while (Gap>1) {
-        await timeDelay(100);
+        await timeDelay(delay);
         Gap = Math.floor((Gap+1) / 2);
         for (let j = Gap; j < numOfBars; j++) {
             for (let i = (j - Gap); i >= 0;i= (i - Gap)) {
                 let k=i+Gap;
-                await timeDelay(100);
-                bars[k].style.backgroundColor = "red";
-                bars[i].style.backgroundColor = "red";
-                await timeDelay(100);
+                await timeDelay(delay);
+                bars[k].style.backgroundColor = "yellow";
+                bars[i].style.backgroundColor = "yellow";
+                await timeDelay(delay);
                 if (array[k] < array[i]) 
                 {
-                    await timeDelay(100);
+                    await timeDelay(delay);
                     temp = array[i];
                     array[i] = array[k];
                     bars[i].style.height = `${array[i] * 3}px`;
-                    await timeDelay(100);
+                    await timeDelay(delay);
                     array[k] = temp;
                     bars[k].style.height = `${array[i + Gap] * 3}px`;
-                    await timeDelay(100);
+                    await timeDelay(delay);
                 }
                 else
                 {
-                    bars[k].style.backgroundColor = "yellow";
-                    bars[i].style.backgroundColor = "yellow";
-                    await timeDelay(100);
+                    bars[k].style.backgroundColor = "#6b5b95";
+                    bars[i].style.backgroundColor = "#6b5b95";
+                    await timeDelay(delay);
                     break;
                 }
-                bars[k].style.backgroundColor = "yellow";
-                bars[i].style.backgroundColor = "yellow";
-                await timeDelay(100);
+                bars[k].style.backgroundColor = "#6b5b95";
+                bars[i].style.backgroundColor = "#6b5b95";
+                await timeDelay(delay);
             }
         }
         
     }
    for (i = 0; i < bars.length; i++) {
-        bars[i].style.backgroundColor = "green";
+        bars[i].style.backgroundColor = "chocolate";
     }
     return array;
 }
 
-sort_btn.addEventListener("click", function () {
-    let sortedArray = shellSort(unsortedArray);
-});
-generateBar();
+new_array_btn.addEventListener("click",function(){
+    enableSortingBtn();
+    enableArraySizeBtn();
+    generateBar(numOfBars);
+  })
+  
+  sort_btn.addEventListener("click", async function(){
+   disableSortingBtn();
+   disableNewArrayBtn();
+   disableArraySizeBtn();
+   await shellSort(unsortedArray);
+   enableNewArrayBtn();
+  });
+
+  generateBar(numOfBars);

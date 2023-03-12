@@ -5,11 +5,22 @@
 </head>
 <body>
   <br/>
-  <p class="header">Merge Sort</p>
+  <h1 class="header">Merge Sort</h1>
   <div id="bar_container"></div>
   <div id="count"></div>
   <div class="button_container">
-    <button id="sort_btn">Sort</button>
+    <button id="new_array">NEW DATA</button>
+    <button id="sort_btn">SORT</button>
+  </div>
+  <div class="col" id="input">
+    <span id="speed">SPEED
+        <input id="speed_input" type="range" min="20" max="300" stepDown=10 value=60>
+    </span>
+</div>
+  <div class="col" id="Asize">
+    <span id="size">SIZE
+      <input id="array_size" type="range" min="5" max="50" step=1 value=20>
+  </span>
   </div>
   <script src="mergeSort.js"></script>
 </body>
