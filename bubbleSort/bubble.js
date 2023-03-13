@@ -41,7 +41,7 @@ function play() {
   
     sortingProcess = setTimeout(function () {
       animate(swaps);
-    }, 100);
+    }, 200);
   }
   
 function bubbleSort(array){
