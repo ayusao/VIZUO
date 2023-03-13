@@ -1,7 +1,8 @@
 var container = document.getElementById("heapArray");
+let totalBars = 20;
 
 function getArray() {
-    for(var i=0;i<20;i++)
+    for(var i=0;i<totalBars;i++)
     {
         var randomValue = Math.ceil(Math.random()*100);
 
@@ -24,7 +25,7 @@ function getArray() {
 var count_container  = document.getElementById("count");
 
 function getIndex() {
-    for(var i=0;i<20;i++)
+    for(var i=0;i<totalBars;i++)
     {
         var arrayElement2 = document.createElement("div");
 
@@ -42,6 +43,14 @@ function getIndex() {
     }
 }
 
+async function delay(m)
+{
+  await new Promise((resolve) =>
+  setTimeout(() => {
+    resolve();
+  }, m)
+);
+}
 async function Heapify(n, i) {
     var blocks = document.querySelectorAll(".block");
     var largest = i; // Initialize largest as root
@@ -66,6 +75,11 @@ async function Heapify(n, i) {
     
     // If largest is not root
     if (largest != i) {
+      blocks[i].style.backgroundColor = "red";
+      blocks[largest].style.backgroundColor = "red";
+
+         await delay(300);
+
       var temp1 = blocks[i].style.height;
       var temp2 = blocks[i].childNodes[0].innerText;
       blocks[i].style.height = blocks[largest].style.height;
@@ -73,13 +87,11 @@ async function Heapify(n, i) {
       blocks[i].childNodes[0].innerText =
       blocks[largest].childNodes[0].innerText;
       blocks[largest].childNodes[0].innerText = temp2;
-    
-      await new Promise((resolve) =>
-        setTimeout(() => {
-          resolve();
-        }, 250)
-      );
-    
+
+      await delay(300);
+ 
+      blocks[i].style.backgroundColor = "#6b5b95";
+      blocks[largest].style.backgroundColor = "#6b5b95";
       // Recursively Hapify the affected sub-tree
       await Heapify(n, largest);
 
@@ -89,7 +101,7 @@ async function Heapify(n, i) {
   // Asynchronous HeapSort function
   async function HeapSort(n) {
     var blocks = document.querySelectorAll(".block");
-    
+    var indexBox = document.querySelectorAll(".block2");
     // Build heap (rearrange array)
     for (var i = n / 2 - 1; i >= 0; i--) {
       await Heapify(n, i);
@@ -98,6 +110,9 @@ async function Heapify(n, i) {
     // One by one extract an element from heap
     for (var i = n - 1; i > 0; i--) {
     
+      blocks[i].style.backgroundColor = "aqua";
+      blocks[0].style.backgroundColor = "aqua";
+      await delay(300);
       // Move current root to end
       var temp1 = blocks[i].style.height;
       var temp2 = blocks[i].childNodes[0].innerText;
@@ -107,16 +122,16 @@ async function Heapify(n, i) {
       blocks[0].childNodes[0].innerText;
       blocks[0].childNodes[0].innerText = temp2;
       
-      blocks[i].style.backgroundColor = "cadetblue";
+      blocks[0].style.backgroundColor = "#6b5b95";
+      blocks[i].style.backgroundColor = "rgb(26, 129, 26)";
+      indexBox[i].style.backgroundColor = "rgb(26, 129, 26)";
     
-      await new Promise((resolve) =>
-        setTimeout(() => {
-          resolve();
-        }, 250)
-      );
+      await delay(500);
       // Call max Heapify on the reduced heap
       await Heapify(i, 0);
     }
+    blocks[0].style.backgroundColor = "rgb(26, 129, 26)";
+    indexBox[0].style.backgroundColor = "rgb(26, 129, 26)";
   }
   function newRandom(){
     location.reload();
@@ -126,5 +141,5 @@ async function Heapify(n, i) {
 
 function play()
 {
-  HeapSort(20);
+  HeapSort(totalBars);
 }

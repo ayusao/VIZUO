@@ -1,7 +1,8 @@
 var container = document.getElementById("array");
+let totalBars = 20;
 
 function getArray() {
-    for(var i=0;i<20;i++)
+    for(var i=0;i<totalBars;i++)
     {
         var randomValue = Math.ceil(Math.random()*100);
 
@@ -24,7 +25,7 @@ function getArray() {
 var count_container  = document.getElementById("count");
 
 function getIndex() {
-    for(var i=0;i<20;i++)
+    for(var i=0;i<totalBars;i++)
     {
         var arrayElement2 = document.createElement("div");
 
@@ -41,7 +42,17 @@ function getIndex() {
         count_container.appendChild(arrayElement2);
     }
 }
+
+async function delay(m)
+{
+  await new Promise((resolve) =>
+  setTimeout(() => {
+    resolve();
+  }, m)
+);
+}
 // Radix sort Javascript implementation
+
  
 // A utility function to get maximum value in arr[]
  function getMax(arr,n)
@@ -90,7 +101,8 @@ function countSort(arr,n,exp)
 async function radixsort(arr,n)
 {
     var blocks = document.querySelectorAll(".block");
-    for(var j =0;j<20;j++)
+    var indexBox = document.querySelectorAll(".block2");
+    for(var j =0;j<totalBars;j++)
     {
         arr[j] = Number(blocks[j].childNodes[0].innerText);
     }
@@ -102,13 +114,14 @@ async function radixsort(arr,n)
         // exp is 10^i where i is current digit number
         for (let exp = 1; Math.floor(m / exp) > 0; exp *= 10)
            { 
-            await new Promise((resolve) =>
-            setTimeout(() => {
-              resolve();
-            }, 1500)
-          );
+            await delay(1700);
             countSort(arr, n, exp)
            }
+    for(var k=0;k<totalBars;k++)
+    {
+    blocks[k].style.backgroundColor = "rgb(26, 129, 26)";
+    indexBox[k].style.backgroundColor = "rgb(26, 129, 26)";
+    }
 }
 
  
