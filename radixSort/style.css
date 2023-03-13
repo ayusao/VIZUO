@@ -9,6 +9,7 @@
 .header {
     font-size: 20px;
     text-align: center;
+    cursor: pointer;
 }
   
 h1{
@@ -111,14 +112,10 @@ h1{
    background-color: #6b5b95;
 }
 
-.return:hover{
-    background-color: brown;
+.return:hover,.btn1:hover,.btn2:hover{
+    background-color: aqua;
+    color: #6b5b95;
 }
-
-.btn1:hover{
-    background-color: cadetblue;
-}
-
-.btn2:hover{
-    background-color: cadetblue;
+.header:hover{
+    color:aqua;
 }

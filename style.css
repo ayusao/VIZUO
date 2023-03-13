@@ -15,6 +15,7 @@ h2{
     top : 20%;
     font-size: 60px;
     color:beige;
+    cursor: pointer;
 }
 
 p{
@@ -23,6 +24,7 @@ p{
     bottom : 10%;
     color:beige;
     font-size: 25px;
+    cursor: pointer;
 }
 
 body {
@@ -45,5 +47,10 @@ button {
 }
 
 .btn:hover{
-    background-color: cadetblue;
+    background-color: aqua;
+    color:brown;
+}
+
+h2:hover,p:hover{
+    color:aqua;
 }

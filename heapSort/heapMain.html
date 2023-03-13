@@ -10,14 +10,22 @@
 <body>
     <br />
     <h1 class="header">Heap Sort</h1>
+    <div class="allcontainers">
+    <div class="container barContainer">
     <div id="heapArray"></div>
     <div id="count"></div>
-    <div>
-        <button class="btn1" onclick="newRandom()">NEW RANDOM</button>
-        <button class="btn2" onclick="play()">START SORTING</button>
-        <button class="return" onclick ="location.href = '../index.html'">HOME</button>
+    <div >
+        <button class="btn" onclick="newRandom()">NEW RANDOM</button>
+        <button class="btn" onclick="play()">START SORTING</button>
+        <button class="btn" onclick ="location.href = '../index.html'">HOME</button>
+    </div>
+    </div>
+    <div class = "container treeContainer">
+        <div class="tree"></div>
+    </div>
     </div>
     <script src="heapSort.js"></script>
+    <script src = "heapTree.js"></script>
 </body>
   
 </html>
