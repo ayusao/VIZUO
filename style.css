@@ -20,8 +20,9 @@ h2{
 p{
     position: absolute;
     padding: 10 10px;
-    bottom : 20%;
+    bottom : 10%;
     color:beige;
+    font-size: 25px;
 }
 
 body {
@@ -32,9 +33,10 @@ body {
        }
 
 button {
-    padding: 7px;
+    padding: 10px;
     border: none;
-    border-radius: 4px;
+    border-radius: 40px;
+    margin: 3px;
     cursor: pointer;
     font-size: 20px;
     color:bisque;
