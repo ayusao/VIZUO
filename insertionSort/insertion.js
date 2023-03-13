@@ -35,9 +35,11 @@ inSortbtn.addEventListener('click', async function(){
     disableSortingBtn();
     disableSizeSlider();
     disableNewArrayBtn();
+    disableHomeBtn();
     await insertion();
     enableSortingBtn();
     enableSizeSlider();
     enableNewArrayBtn();
+    enableHomeBtn();
 });
 
