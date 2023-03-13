@@ -9,6 +9,7 @@
 .header {
     font-size: 40px;
     text-align: center;
+    cursor: pointer;
 }
 
 h1{
@@ -100,11 +101,13 @@ h1{
 }
 
 .btn:hover{
-    background-color:brown;
+    background-color:aqua;
+    color: #6b5b95;
 }
 
-
-
+.header:hover{
+    color: aqua;
+}
 
 .tree{
     display: flex;
@@ -112,6 +115,7 @@ h1{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
 
 .node{
@@ -196,6 +200,7 @@ h1{
 
 .nodeElement:hover{
     border: 2px solid aqua;
+    color: aqua;
 }
 
 .nodeElement:hover ~ .nodeChildren,

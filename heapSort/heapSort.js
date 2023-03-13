@@ -103,6 +103,7 @@ async function Heapify(n, i) {
   async function HeapSort(n) {
     var blocks = document.querySelectorAll(".block");
     var indexBox = document.querySelectorAll(".block2");
+    
     // Build heap (rearrange array)
     for (var i = n / 2 - 1; i >= 0; i--) {
       await Heapify(n, i);
