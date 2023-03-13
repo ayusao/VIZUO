@@ -36,7 +36,16 @@ function delayRoutine(millisecs) {
     }) 
 }
 
-function createNewArray(noOfBars = 60) {
+function disableHomeBtn(){
+    document.querySelector(".home").disabled = true;
+}
+
+function enableHomeBtn(){
+    document.querySelector(".home").disabled = false;
+}
+
+
+function createNewArray(noOfBars = 20) {
 
     deleteChild();
 
@@ -74,6 +83,8 @@ let delayElement = document.querySelector('#speed_input');
 
 let array = [];
 
+let home = document.querySelector('#home');
+
 arraySize.addEventListener('input', function(){
     console.log(arraySize.value, typeof(arraySize.value));
     createNewArray(parseInt(arraySize.value));
@@ -82,6 +93,12 @@ arraySize.addEventListener('input', function(){
 delayElement.addEventListener('input', function(){
     console.log(delayElement.value, typeof(delayElement.value));
     delay = 320 - parseInt(delayElement.value);//the more the slider goes right, lesser the delay value ie faster the speed
+});
+
+home.addEventListener('click', function()
+{
+    console.log("Returning to home page");
+    document.location.href = '../index.html';
 });
 
 createNewArray();

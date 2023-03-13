@@ -28,18 +28,21 @@ h1{
 .btn{
     height: 50px;
     width:90px;
-    color: black;
+    color: white;
+    background-color:  #6b5b95;
+    border: none;
 }
 
 .btn:hover{
-    color: #1074ee;
+    background-color: #f5ebf2;
+    color: black;
 }
 
 .flex-item{
-    background: #f5ebf2;
-    opacity: 0.7;
-    border: 1pt solid black;
-    width: 14px;
+    background:  #6b5b95;
+    opacity: 1;
+    border: 2pt solid #202528;
+    width: 30px;
     transition: 0.1s all ease;
 }
 
@@ -52,7 +55,7 @@ h1{
 
 .row{
     display: grid;
-    grid-template-columns: 1.9fr 2fr 1.5fr;
+    grid-template-columns: 0.5fr 1fr 1fr 1.5fr;
 }
 
 #input{
@@ -60,20 +63,4 @@ h1{
     padding: 10px;
     justify-content: space-around;
     width: 400px;
-}
-.return {
-    margin: 30px 6px;
-    position: absolute;
-    bottom : 0%;
-    right: 0%;
-    padding: 7px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 20px;
-    color:#fff;
-   background-color: #6b5b95;
-}
-.return:hover{
-    background-color: brown;
 }

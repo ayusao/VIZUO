@@ -16,7 +16,7 @@ async function partition(ele, beg, end) {
 
         while (left < right) {
             while (parseInt(ele[left].style.height) <= parseInt(key) && left < end) {
-                ele[left].style.background = '#f5ebf2';
+                ele[left].style.background = '#6b5b95';
                 left++;
                 ele[left].style.background = 'purple';
                 ele[pivot].style.background = 'red';
@@ -24,7 +24,7 @@ async function partition(ele, beg, end) {
             }
 
             while (parseInt(ele[right].style.height) > parseInt(key)) {
-                ele[right].style.background = '#f5ebf2';
+                ele[right].style.background = '#6b5b95';
                 right--;
                 ele[right].style.background = 'blue';
                 await delayRoutine(delay);
@@ -47,7 +47,7 @@ async function partition(ele, beg, end) {
         playNote(400);
         swap(ele[pivot], ele[right]);
         ele[right].style.background = 'green';
-        ele[pivot].style.background = '#f5ebf2';
+        ele[pivot].style.background = '#6b5b95';
         return right;
     }
     else
@@ -87,9 +87,11 @@ quickSortbtn.addEventListener('click', async function () {
     disableSortingBtn();
     disableSizeSlider();
     disableNewArrayBtn();
+    disableHomeBtn();
     await quicksort(ele, beg, end);
     enableSortingBtn();
     enableSizeSlider();
     enableNewArrayBtn();
+    enableHomeBtn();
 });
 
