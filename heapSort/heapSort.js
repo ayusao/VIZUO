@@ -7,7 +7,6 @@ function getArray() {
         var randomValue = Math.ceil(Math.random()*100);
 
         var arrayElement = document.createElement("div");
-
         arrayElement.classList.add("block");
 
         arrayElement.style.height = `${randomValue * 3}px`;
@@ -51,6 +50,7 @@ async function delay(m)
   }, m)
 );
 }
+
 async function Heapify(n, i) {
     var blocks = document.querySelectorAll(".block");
     var largest = i; // Initialize largest as root
@@ -88,6 +88,7 @@ async function Heapify(n, i) {
       blocks[largest].childNodes[0].innerText;
       blocks[largest].childNodes[0].innerText = temp2;
 
+      main();
       await delay(300);
  
       blocks[i].style.backgroundColor = "#6b5b95";
@@ -122,6 +123,7 @@ async function Heapify(n, i) {
       blocks[0].childNodes[0].innerText;
       blocks[0].childNodes[0].innerText = temp2;
       
+      main();
       blocks[0].style.backgroundColor = "#6b5b95";
       blocks[i].style.backgroundColor = "rgb(26, 129, 26)";
       indexBox[i].style.backgroundColor = "rgb(26, 129, 26)";
@@ -133,9 +135,11 @@ async function Heapify(n, i) {
     blocks[0].style.backgroundColor = "rgb(26, 129, 26)";
     indexBox[0].style.backgroundColor = "rgb(26, 129, 26)";
   }
+
   function newRandom(){
     location.reload();
   }
+
  getArray();
  getIndex();
 
