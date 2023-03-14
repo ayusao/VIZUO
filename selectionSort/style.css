@@ -15,6 +15,7 @@ h1 {
 }
   
 #container1{
+    margin-top: 80px;
     height: 300px;
     display: flex;
     align-items: flex-end;
@@ -23,9 +24,6 @@ body{
     display:flex;
     align-items: center;
     flex-direction: column;
-}
-hr{
-    margin: 50px;
 }
 .bar{
     width: 25px;
