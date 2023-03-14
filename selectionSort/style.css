@@ -3,7 +3,7 @@
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
-    background-color: rgb(17,17,17);
+    background-color: #202528;
 }
   
 h1 {
@@ -58,8 +58,10 @@ hr{
    background-color: #6b5b95;
 }
 .return:hover{
-    background-color: brown;
+    color: black;
+    background-color: cadetblue;
 }
 .button:hover{
     background-color: cadetblue;
+    color: black;
 }
