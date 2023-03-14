@@ -3,12 +3,13 @@
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
-    background-color: black;
+    background-color: #202528;
 }
   
 .header {
     font-size: 20px;
     text-align: center;
+    cursor: pointer;
 }
   
 h1{
@@ -111,14 +112,10 @@ h1{
    background-color: #6b5b95;
 }
 
-.return:hover{
-    background-color: brown;
-}
-
-.btn1:hover{
+.return:hover,.btn1:hover,.btn2:hover{
     background-color: cadetblue;
+    color: black;
 }
-
-.btn2:hover{
-    background-color: cadetblue;
+.header:hover{
+    color:cadetblue;
 }

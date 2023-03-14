@@ -3,12 +3,13 @@
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
-    background-color: rgb(17, 17, 17);
+    background-color: #202528;
 }
   
 .header {
-    font-size: 20px;
+    font-size: 40px;
     text-align: center;
+    cursor: pointer;
 }
 
 h1{
@@ -19,12 +20,27 @@ h1{
     color: #fff;
 }
 
+.allcontainers{
+    display: flex;
+    width: 50%;
+}
+
+.container {
+    flex: 1;
+    margin: 10px;
+  }
+  
+  .container:first-child {
+    margin-right: -80px;
+    margin-left: 30px;
+  }
+
 #heapArray {
     height: 270px;
     width: 598px;
     margin: auto;
     position: relative;
-    margin-top: 64px;
+    margin-top: 140px;
 }
   
 .block {
@@ -70,12 +86,11 @@ h1{
     height: 20px;
     width: 598px;
     margin: auto;
+    margin-left: 0%;
 }
 
-.btn2 {
-    margin: 30px 6px;
-    position:absolute;
-    left: 50%;
+.btn{
+    margin: 40px 20px;
     padding: 7px;
     border: none;
     border-radius: 4px;
@@ -85,41 +100,122 @@ h1{
    background-color: #6b5b95;
 }
 
-.btn1 {
-    margin: 30px 6px;
+.btn:hover{
+    background-color:cadetblue;
+    color: black;
+}
+
+.header:hover{
+    color: cadetblue;
+}
+
+.tree{
+    display: flex;
+    margin-top: 20px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.node{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.nodeChildren{
+    display: flex;
+    padding: 20px 0;
+    border-top: 1px solid #dcdcdc;
+}
+
+/*for the lines*/
+.node:not(.nodeRight)>.nodeElement::before{
+    content: '';
+    height: 28px;
+    width: 1px;
+    background-color: #dcdcdc;
+    display: block;
     position: absolute;
-    left: 38%;
-    padding: 7px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 20px;
-    color:#fff;
-   background-color: #6b5b95;
+    left: 18px;
+    right: 0; 
+    top: -24px;
+    margin:auto;
+    transform-origin:left;
+    transform: rotate(45deg);
 }
 
-.return {
-    margin: 30px 6px;
+.node:not(.nodeLeft)>.nodeElement::before{
+    content: '';
+    height: 28px;
+    width: 1px;
+    background-color: #dcdcdc;
+    display: block;
     position: absolute;
-    bottom : 0%;
-    right: 0%;
-    padding: 7px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+    left: 0px;
+    right: 18px; 
+    top: -24px;
+    margin:auto;
+    transform-origin: right;
+    transform: rotate(-45deg);
+}
+
+
+.nodeBottomLine{
+    height:20px;
+    width: 0.5px;
+    background-color: #dcdcdc;
+}
+
+.node.nodeLeft{
+    margin-right:3px;
+}
+
+.node.nodeRight{
+    margin-left:3px;
+}
+
+.nodeElement{
+    height: 50px;
+    background-color: #6b5b95;
+    border-radius: 25px;
+    min-width:50px;
+    max-width: max-content;
+    padding: 10px 14px;
     font-size: 20px;
-    color:#fff;
-   background-color: #6b5b95;
+    color:beige;
+    line-height: 26px;
+    text-align: center;
 }
 
-.return:hover{
-    background-color: brown;
+.treeContainer {
+    margin-top: 30px;
+    margin-left: 50%;
+    display: flex;
+    flex-direction: column;
+    
+  }
+
+.nodeElement:hover{
+    border: 2px solid cadetblue;
+    color: cadetblue;
 }
 
-.btn1:hover{
+.nodeElement:hover ~ .nodeChildren,
+.nodeElement:hover ~ .nodeChildren .nodeChildren{
+    border-top-width:2px;
+    border-color: cadetblue;
+}
+
+.nodeElement:hover ~ .nodeBottomLine,
+.nodeElement:hover ~ .nodeChildren .nodeBottomLine {
+    width: 2px;
     background-color: cadetblue;
 }
 
-.btn2:hover{
+.nodeElement:hover ~ .nodeChildren .nodeElement::before{
+    width:2px;
     background-color: cadetblue;
 }

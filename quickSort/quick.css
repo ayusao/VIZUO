@@ -34,14 +34,14 @@ h1{
 }
 
 .btn:hover{
-    background-color: #f5ebf2;
+    background-color: cadetblue;
     color: black;
 }
 
 .flex-item{
     background:  #6b5b95;
     opacity: 1;
-    border: 1pt solid black;
+    border: 2pt solid #202528;
     width: 30px;
     transition: 0.1s all ease;
 }
