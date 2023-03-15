@@ -89,22 +89,23 @@ h1{
     margin-left: 0%;
 }
 
-.btn{
-    margin: 40px 20px;
+.btn, .btn1{
+    margin: 40px 30px;
     padding: 7px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     font-size: 20px;
+    min-width: 30px;
     color:#fff;
    background-color: #6b5b95;
 }
 
-.btn:hover{
+.btn:hover, .btn1:hover{
     background-color:cadetblue;
     color: black;
 }
-.btn:active{
+.btn:active, .btn1:active{
     opacity:0.6;
 }
 
@@ -221,4 +222,35 @@ h1{
 .nodeElement:hover ~ .nodeChildren .nodeElement::before{
     width:2px;
     background-color:aqua;
+}
+
+/* for the counter button  */
+h2 {
+    display:inline-table;
+    color:beige;
+    font-size: 18px;
+    margin : 0 0;
+    align-items: center;
+}
+
+.btn1{
+    margin : 0 10px;
+}
+
+.plusbutton{
+    left: 140px;
+    position :absolute;
+}
+
+.controlContainer{
+    margin: 0 20px;
+    margin-right: 70%;
+    margin-top: -3%;
+}
+
+p {
+    color:beige;
+    font-size: 18px;
+    margin : 5px 40px;
+    align-items: center;
 }
