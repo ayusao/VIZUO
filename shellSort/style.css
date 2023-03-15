@@ -119,3 +119,6 @@ h1{
 .return:hover{
   background-color: brown;
 }
+.return:active{
+  opacity: 0.6;
+}

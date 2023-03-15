@@ -47,8 +47,12 @@ button {
 }
 
 .btn:hover{
-    background-color: aqua;
+    background-color: bisque;
     color:#6b5b95;
+}
+
+.btn:active{
+    opacity:0.6;
 }
 
 h2:hover,p:hover{
