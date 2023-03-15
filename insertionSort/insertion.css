@@ -38,6 +38,9 @@ h1{
     background-color: cadetblue;
     color: black;
 }
+.btn:active{
+    opacity:0.6;
+}
 
 .flex-item{
     background:  #6b5b95;

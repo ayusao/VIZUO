@@ -104,6 +104,9 @@ h1{
     background-color:cadetblue;
     color: black;
 }
+.btn:active{
+    opacity:0.6;
+}
 
 .header:hover{
     color: cadetblue;
