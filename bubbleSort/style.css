@@ -25,7 +25,7 @@ body{
     flex-direction: column;
 }
 .bar{
-    width: 25px;
+    width: 20px;
     margin: 4px;
     padding: 10px;
     background-color: #6b5b95;
