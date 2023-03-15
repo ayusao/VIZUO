@@ -3,6 +3,12 @@ const array =[];
 var sortingProcess;
 initialize();
 //for generating random values
+let delay = 260;
+let delayElement = document.querySelector('#speed_input');
+
+delayElement.addEventListener('input', function(){
+    delay = 320 - parseInt(delayElement.value);//the more the slider goes right, lesser the delay value ie faster the speed
+});
 function initialize() {
     // Stop any ongoing sorting process
     if (sortingProcess) {
@@ -41,7 +47,7 @@ function play() {
   
     sortingProcess = setTimeout(function () {
       animate(swaps);
-    }, 200);
+    }, delay);
   }
   
 function bubbleSort(array){

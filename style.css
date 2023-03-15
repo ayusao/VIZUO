@@ -51,6 +51,10 @@ button {
     color: black;
 }
 
+.btn:active{
+    opacity:0.6;
+}
+
 h2:hover,p:hover{
     color:cadetblue;
 }

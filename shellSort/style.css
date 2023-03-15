@@ -122,3 +122,6 @@ h1{
   background-color: cadetblue;
   color: black;
 }
+.return:active{
+  opacity: 0.6;
+}

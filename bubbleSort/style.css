@@ -61,3 +61,19 @@ body{
     background-color: cadetblue;
     color: black;
 }
+.return:active{
+    opacity:0.6;
+}
+.button:active{
+    opacity:0.6;
+}
+#input{
+    display: flex;
+    padding: 10px;
+    justify-content: space-around;
+    width: 400px;
+    margin-top: 20px;
+  }
+  #speed{
+    color: #fff;
+  }
