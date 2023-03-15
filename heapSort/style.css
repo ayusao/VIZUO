@@ -199,23 +199,23 @@ h1{
   }
 
 .nodeElement:hover{
-    border: 2px solid cadetblue;
-    color: cadetblue;
+    border: 2px solid aqua;
+    color: aqua;
 }
 
 .nodeElement:hover ~ .nodeChildren,
 .nodeElement:hover ~ .nodeChildren .nodeChildren{
     border-top-width:2px;
-    border-color: cadetblue;
+    border-color: aqua;
 }
 
 .nodeElement:hover ~ .nodeBottomLine,
 .nodeElement:hover ~ .nodeChildren .nodeBottomLine {
     width: 2px;
-    background-color: cadetblue;
+    background-color: aqua;
 }
 
 .nodeElement:hover ~ .nodeChildren .nodeElement::before{
     width:2px;
-    background-color: cadetblue;
+    background-color:aqua;
 }
