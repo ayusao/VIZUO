@@ -3,7 +3,7 @@
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
-    background-color: rgb(17, 17, 17);
+    background-color: #202528;
 }
   
 .header {
@@ -101,12 +101,12 @@ h1{
 }
 
 .btn:hover{
-    background-color:aqua;
-    color: #6b5b95;
+    background-color:cadetblue;
+    color: black;
 }
 
 .header:hover{
-    color: aqua;
+    color: cadetblue;
 }
 
 .tree{
@@ -199,23 +199,23 @@ h1{
   }
 
 .nodeElement:hover{
-    border: 2px solid aqua;
-    color: aqua;
+    border: 2px solid cadetblue;
+    color: cadetblue;
 }
 
 .nodeElement:hover ~ .nodeChildren,
 .nodeElement:hover ~ .nodeChildren .nodeChildren{
     border-top-width:2px;
-    border-color: aqua;
+    border-color: cadetblue;
 }
 
 .nodeElement:hover ~ .nodeBottomLine,
 .nodeElement:hover ~ .nodeChildren .nodeBottomLine {
     width: 2px;
-    background-color: aqua;
+    background-color: cadetblue;
 }
 
 .nodeElement:hover ~ .nodeChildren .nodeElement::before{
     width:2px;
-    background-color: aqua;
+    background-color: cadetblue;
 }

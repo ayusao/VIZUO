@@ -6,7 +6,7 @@
     padding: 0;
     text-decoration: none;
     box-sizing: border-box;
-    background-color:rgb(17,17,17);
+    background-color:#202528;
 }
 
 h2{
@@ -43,12 +43,12 @@ button {
     font-size: 20px;
     color:bisque;
     background-color: #6b5b95;
-    border-color: black;
+    border-color: #202528;
 }
 
 .btn:hover{
-    background-color: bisque;
-    color:#6b5b95;
+    background-color: cadetblue;
+    color: black;
 }
 
 .btn:active{
@@ -56,5 +56,5 @@ button {
 }
 
 h2:hover,p:hover{
-    color:aqua;
+    color:cadetblue;
 }

@@ -3,7 +3,7 @@
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
-    background-color: rgb(17,17,17);
+    background-color: #202528;
 }
   
 h1 {
@@ -15,6 +15,7 @@ h1 {
 }
   
 #container1{
+    margin-top: 80px;
     height: 300px;
     display: flex;
     align-items: flex-end;
@@ -23,9 +24,6 @@ body{
     display:flex;
     align-items: center;
     flex-direction: column;
-}
-hr{
-    margin: 50px;
 }
 .bar{
     width: 25px;
@@ -58,8 +56,10 @@ hr{
    background-color: #6b5b95;
 }
 .return:hover{
-    background-color: brown;
+    color: black;
+    background-color: cadetblue;
 }
 .button:hover{
     background-color: cadetblue;
+    color: black;
 }

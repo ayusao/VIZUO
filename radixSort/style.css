@@ -3,7 +3,7 @@
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
-    background-color: black;
+    background-color: #202528;
 }
   
 .header {
@@ -113,9 +113,9 @@ h1{
 }
 
 .return:hover,.btn1:hover,.btn2:hover{
-    background-color: aqua;
-    color: #6b5b95;
+    background-color: cadetblue;
+    color: black;
 }
 .header:hover{
-    color:aqua;
+    color:cadetblue;
 }
