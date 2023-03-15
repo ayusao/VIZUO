@@ -71,7 +71,7 @@ function showbars(indices) {
 
   for (let i = 0; i < array.length; i++) {
     const bar = document.createElement("div");
-    bar.style.height = `${array[i] * 100}%`;
+    bar.style.height = array[i]*100+"%";
     bar.classList.add("bar");
 
     if (indices && indices.includes(i)) {
@@ -87,11 +87,16 @@ function onSizeSliderChange(event) {
 }
 
 function onSpeedSliderChange(event) {
-  animationSpeed = Number(event.target.value);
+  const maxSpeed = 300; // set a maximum speed value
+  const minSpeed = 20; // set a minimum speed value
+  const sliderValue = event.target.value;
+  const percent = (sliderValue - 1) / 100;
+  animationSpeed = maxSpeed - (percent * (maxSpeed - minSpeed)); // calculate the animation speed based on the percentage
 }
 
+
 const sizeSlider = document.getElementById("size-slider");
-sizeSlider.addEventListener("change", onSizeSliderChange);
+sizeSlider.addEventListener("input", onSizeSliderChange);
 
 const speedSlider = document.getElementById("speed-slider");
-speedSlider.addEventListener("change", onSpeedSliderChange);
+speedSlider.addEventListener("input", onSpeedSliderChange);
