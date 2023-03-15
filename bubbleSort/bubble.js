@@ -1,13 +1,18 @@
 const defaultArraySize = 20;
-const defaultAnimationSpeed = 200;
+
 
 let arraySize = defaultArraySize;
-let animationSpeed = defaultAnimationSpeed;
 let array = [];
 
 let sortingProcess;
 
 initialize();
+let delay = 260;
+let delayElement = document.querySelector('#speed_input');
+
+delayElement.addEventListener('input', function(){
+    delay = 320 - parseInt(delayElement.value);//the more the slider goes right, lesser the delay value ie faster the speed
+});
 
 // for generating random values
 function initialize() {
@@ -17,8 +22,10 @@ function initialize() {
   }
 
   // Generate a new array of random values
-  array = Array.from({ length: arraySize }, () => Math.random());
-
+  for (var i = 0; i < arraySize; i++) {
+    array[i] = Math.random();
+  }
+  
   showbars();
 }
 
@@ -34,18 +41,13 @@ function animate(swaps) {
     return;
   }
 
-  // Check if a new array has been generated
-  if (swaps.length === 1 && swaps[0][0] === -1) {
-    return;
-  }
-
   const [i, j] = swaps.shift();
   [array[i], array[j]] = [array[j], array[i]];
   showbars([i, j]);
 
   sortingProcess = setTimeout(() => {
     animate(swaps);
-  }, animationSpeed);
+  }, delay);
 }
 
 function bubbleSort(array) {
@@ -86,17 +88,6 @@ function onSizeSliderChange(event) {
   initialize();
 }
 
-function onSpeedSliderChange(event) {
-  const maxSpeed = 300; // set a maximum speed value
-  const minSpeed = 20; // set a minimum speed value
-  const sliderValue = event.target.value;
-  const percent = (sliderValue - 1) / 100;
-  animationSpeed = maxSpeed - (percent * (maxSpeed - minSpeed)); // calculate the animation speed based on the percentage
-}
-
-
 const sizeSlider = document.getElementById("size-slider");
 sizeSlider.addEventListener("input", onSizeSliderChange);
 
-const speedSlider = document.getElementById("speed-slider");
-speedSlider.addEventListener("input", onSpeedSliderChange);
