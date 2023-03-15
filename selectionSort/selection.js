@@ -3,6 +3,12 @@ const array = [];
 var sortingProcess;
 
 initialize();
+let delay = 260;
+let delayElement = document.querySelector('#speed_input');
+
+delayElement.addEventListener('input', function(){
+    delay = 320 - parseInt(delayElement.value);//the more the slider goes right, lesser the delay value ie faster the speed
+});
 
 //for generating random values
 function initialize() {
@@ -35,7 +41,7 @@ function animate(swaps) {
   showbars([i, j]);
   sortingProcess = setTimeout(function () {
     animate(swaps);
-  }, 200);
+  }, delay);
 }
 
 function selectionSort(array) {

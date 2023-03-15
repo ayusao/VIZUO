@@ -112,8 +112,8 @@ h1{
 }
 .return:hover{
   background-color: cadetblue;
+  color: black
 }
 .return:active{
   opacity: 0.6;
-  color: black
 }

@@ -10,6 +10,12 @@ let sortingProcess;
 initialize();
 
 // for generating random values
+let delay = 260;
+let delayElement = document.querySelector('#speed_input');
+
+delayElement.addEventListener('input', function(){
+    delay = 320 - parseInt(delayElement.value);//the more the slider goes right, lesser the delay value ie faster the speed
+});
 function initialize() {
   // Stop any ongoing sorting process
   if (sortingProcess) {
@@ -23,37 +29,39 @@ function initialize() {
 }
 
 function play() {
-  const copyarray = [...array];
-  const swapping = bubbleSort(copyarray);
-  animate(swapping);
-}
-
-function animate(swaps) {
-  if (swaps.length === 0) {
-    showbars();
-    return;
+    const copyarray = [...array];
+    const swapping = bubbleSort(copyarray);
+    animate(swapping);
   }
-
-  // Check if a new array has been generated
-  if (swaps.length === 1 && swaps[0][0] === -1) {
-    return;
+  function animate(swaps) {
+    if (swaps.length == 0) {
+      showbars();
+      return;
+    }
+  
+    // Check if a new array has been generated
+    if (swaps.length == 1 && swaps[0][0] == -1) {
+      return;
+    }
+  
+    const [i, j] = swaps.shift();
+    [array[i], array[j]] = [array[j], array[i]];
+    showbars([i, j]);
+  
+    sortingProcess = setTimeout(function () {
+      animate(swaps);
+    }, delay);
   }
-
-  const [i, j] = swaps.shift();
-  [array[i], array[j]] = [array[j], array[i]];
-  showbars([i, j]);
-
-  sortingProcess = setTimeout(() => {
-    animate(swaps);
-  }, animationSpeed);
-}
-
-function bubbleSort(array) {
-  const swaps = [];
-  for (let i = 0; i < array.length; i++) {
-    for (let j = 0; j <= array.length - i; j++) {
-      if (array[j] > array[j + 1]) {
-        swaps.push([j, j + 1]);
+  
+function bubbleSort(array){
+    const swaps =[];
+        for (var i=0; i<array.length; i++)
+        {
+        for (var j=0; j<= array.length-i; j++)
+        {
+            if (array[j]>array[j+1])
+            {
+                swaps.push([j, j+1]);
 
         const temp = array[j];
         array[j] = array[j + 1];
