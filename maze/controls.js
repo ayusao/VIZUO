@@ -1,7 +1,9 @@
 let regenerate = document.querySelector(".regenerate");
 let home1 = document.querySelector(".home1");
 let home2 = document.querySelector(".home2");
+let home3 = document.querySelector(".home3");
 let complete = document.querySelector(".complete");
+let homemaze = document.querySelector(".home3");
 
 let reachedHome = false;
 
@@ -11,13 +13,18 @@ regenerate.addEventListener("click", () => {
 
 home1.addEventListener("click", () => {
     console.log("Returning to home page");
-    document.location.href = '../index.html';
+    document.location.href = '../main.html';
 });
 
 home2.addEventListener("click", () => {
     complete.style.display = "none";//make the div disappear
     console.log("Returning to home page");
-    document.location.href = '../index.html';
+    document.location.href = '../main.html';
+});
+
+home3.addEventListener("click", () => {
+    console.log("Returning to home page");
+    document.location.href = '../main.html';
 });
 
 let form = document.querySelector("#controls");
@@ -51,8 +58,9 @@ function generateMaze(event) {
     }
 
     container.style.display = "none";
+    homemaze.style.display = "inline-block";
 
-    newMaze = new Maze(600, rows, columns, delay);
+    newMaze = new Maze(590, rows, columns, delay);
     newMaze.setup();
     newMaze.drawMaze();
 }
@@ -76,10 +84,12 @@ function move(event) {
                 currentCell = next;
                 newMaze.drawMaze();
                 currentCell.highlightCurrentCell(newMaze.noOfColumns);
+                playNote(500);
                 // not required if goal is in bottom right
                 if (currentCell.goal) {
                     reachedHome = true;
                     complete.style.display = "block";
+                    homemaze.style.display = "none";
                 }
             }
             break;
@@ -90,9 +100,11 @@ function move(event) {
                 currentCell = next;
                 newMaze.drawMaze();
                 currentCell.highlightCurrentCell(newMaze.noOfColumns);
+                playNote(500);
                 if (currentCell.goal) {
                     reachedHome = true;
                     complete.style.display = "block";//make the div visible
+                    homemaze.style.display = "none";
                 }
             }
             break;
@@ -103,9 +115,11 @@ function move(event) {
                 currentCell = next;
                 newMaze.drawMaze();
                 currentCell.highlightCurrentCell(newMaze.noOfColumns);
+                playNote(500);
                 if (currentCell.goal) {
                     reachedHome = true;
                     complete.style.display = "block";
+                    homemaze.style.display = "none";
                 }
             }
             break;
@@ -116,9 +130,11 @@ function move(event) {
                 currentCell = next;
                 newMaze.drawMaze();
                 currentCell.highlightCurrentCell(newMaze.noOfColumns);
+                playNote(500);
                 if (currentCell.goal) {
                     reachedHome = true;
                     complete.style.display = "block";
+                    homemaze.style.display = "none";
                 }
             }
             break;

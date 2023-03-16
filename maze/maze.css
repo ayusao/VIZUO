@@ -9,7 +9,11 @@ body {
 
 .grid {
     text-align: center;
-    margin-top: 20px;
+    margin-top: 5px;
+}
+
+.mainmaze{
+    text-align: center;
 }
 
 .complete {
@@ -102,6 +106,12 @@ button {
 p {
     font-family: Georgia, 'Times New Roman', Times, serif;
     margin-top: 0px;
+}
+
+.home3{
+    margin-left: 30px;
+    margin-top: 5px;
+    margin-bottom: 0px;
 }
 
 button:hover {
