@@ -25,7 +25,7 @@ body{
     flex-direction: column;
 }
 .bar{
-    width: 25px;
+    width: 20px;
     margin: 4px;
     padding: 10px;
     background-color: #6b5b95;
@@ -67,13 +67,8 @@ body{
 .button:active{
     opacity:0.6;
 }
-#input{
-    display: flex;
-    padding: 10px;
-    justify-content: space-around;
-    width: 400px;
-    margin-top: 20px;
-  }
-  #speed{
+.menu{
     color: #fff;
-  }
+    font-size: 20px;
+    margin: 3px;
+}

@@ -1,8 +1,52 @@
-var container = document.getElementById("array");
-let totalBars = 20;
+let arr = [];
 
-function getArray() {
-    for(var i=0;i<totalBars;i++)
+var speed = 1;
+document.getElementById("counting").innerText = speed;
+  
+function increment() {
+    if (speed < 4)
+    speed = speed + 1;
+    document.getElementById("counting").innerText = speed;
+}
+function decrement() {
+    if(speed > 1)
+    speed = speed - 1;
+    document.getElementById("counting").innerText = speed;
+}
+
+var totalBars = 20;
+document.getElementById("sizeCount").innerText = totalBars;
+function incrementSize() {
+    if (totalBars < 30)
+    {
+    totalBars++;
+    getArray(totalBars);
+    getIndex(totalBars);
+    }
+    document.getElementById("sizeCount").innerText = totalBars;
+}
+function decrementSize() {
+    if(totalBars > 10)
+    {
+    totalBars--;
+    getArray(totalBars);
+    getIndex(totalBars);
+    }
+    document.getElementById("sizeCount").innerText = totalBars;
+}
+
+var container = document.getElementById("array");
+function deleteChild() {
+    count_container.innerHTML = '';
+  }
+  function deleteChildArray() {
+    container.innerHTML = '';
+  }
+
+function getArray(b) {
+    
+    deleteChildArray();
+    for(var i=0;i<b;i++)
     {
         var randomValue = Math.ceil(Math.random()*100);
 
@@ -24,8 +68,9 @@ function getArray() {
 
 var count_container  = document.getElementById("count");
 
-function getIndex() {
-    for(var i=0;i<totalBars;i++)
+function getIndex(b) {
+    deleteChild();
+    for(var i=0;i<b;i++)
     {
         var arrayElement2 = document.createElement("div");
 
@@ -48,8 +93,7 @@ async function delay(m)
   await new Promise((resolve) =>
   setTimeout(() => {
     resolve();
-  }, m)
-);
+  }, m - (speed*250)) );
 }
 // Radix sort Javascript implementation
 
@@ -114,7 +158,7 @@ async function radixsort(arr,n)
         // exp is 10^i where i is current digit number
         for (let exp = 1; Math.floor(m / exp) > 0; exp *= 10)
            { 
-            await delay(1700);
+            await delay(2000);
             countSort(arr, n, exp)
            }
     for(var k=0;k<totalBars;k++)
@@ -123,16 +167,13 @@ async function radixsort(arr,n)
     indexBox[k].style.backgroundColor = "rgb(26, 129, 26)";
     }
 }
-
- 
-let arr = [];
  
 function newRandom(){
     location.reload();
   }
-getArray();
-getIndex();
+getArray(totalBars);
+getIndex(totalBars);
 
 function play(){
-radixsort(arr, 20);
+radixsort(arr, totalBars);
 }

@@ -7,7 +7,7 @@
 }
   
 .header {
-    font-size: 20px;
+    font-size: 40px;
     text-align: center;
     cursor: pointer;
 }
@@ -23,8 +23,10 @@ h1{
     height: 270px;
     width: 598px;
     margin: auto;
+    margin-left: 25%;
     position: relative;
-    margin-top: 64px;
+    margin-top: 150px;
+    align-items: center;
 }
   
 .block {
@@ -70,55 +72,67 @@ h1{
     height: 20px;
     width: 598px;
     margin: auto;
+    margin-left: 25%;
+    align-items: center;
 }
 
-.btn2 {
-    margin: 30px 6px;
-    position:absolute;
-    left: 50%;
+.btn, .btn1{
+    margin: 20px 20px;
     padding: 7px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     font-size: 20px;
+    min-width: 30px;
     color:#fff;
    background-color: #6b5b95;
 }
 
-.btn1 {
-    margin: 30px 6px;
-    position: absolute;
-    left: 38%;
-    padding: 7px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 20px;
-    color:#fff;
-   background-color: #6b5b95;
-}
-
-.return {
-    margin: 30px 6px;
-    position: absolute;
-    bottom : 0%;
-    right: 0%;
-    padding: 7px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 20px;
-    color:#fff;
-   background-color: #6b5b95;
-}
-
-.return:hover,.btn1:hover,.btn2:hover{
-    background-color: cadetblue;
+.btn:hover, .btn1:hover{
+    background-color:cadetblue;
     color: black;
 }
-.return:active,.btn1:active,.btn2:active{
+.btn:active, .btn1:active{
     opacity:0.6;
 }
+
 .header:hover{
-    color:cadetblue;
+    color: cadetblue;
+}
+
+h2 {
+    display:inline-table;
+    color:beige;
+    font-size: 18px;
+    margin : 0 0;
+    align-items: center;
+}
+
+.btn1{
+    margin : 0 10px;
+}
+
+.controlContainer{
+    margin: 0 20px;
+    margin-top: 0%;
+    margin-right: 85%;
+}
+
+.controlContainer2{
+    margin: 0 20px;
+    margin-top: -6.6%;
+    margin-left: 21%;
+    margin-right: 65%;
+}
+
+.buttonContainer{
+    margin-left: 500px;
+    margin-top: 2%;
+}
+
+p {
+    color:beige;
+    font-size: 18px;
+    margin : 5px 40px;
+    align-items: center;
 }
