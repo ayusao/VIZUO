@@ -4,44 +4,20 @@ var newArrayBtn = document.getElementById("newArray");
 var mArrayBtn = document.getElementById("sizeArray");
 var aArrayBtn = document.getElementById("sizeArray2");
 
-var speed = 1;
+var speed = 0.5;
 document.getElementById("counting").innerText = speed;
   
 function increment() {
-    if (speed < 4)
-    speed = speed + 1;
+    if (speed < 2)
+    speed = speed + 0.5;
     document.getElementById("counting").innerText = speed;
 }
 
 function decrement() {
-    if(speed > 1)
-    speed = speed - 1;
+    if(speed > 0.5)
+    speed = speed - 0.5;
     document.getElementById("counting").innerText = speed;
 }
-
-document.getElementById("sizeCount").innerText = totalBars;
-function incrementSize() {
-    if (totalBars < 30)
-    {
-    totalBars++;
-    container.style.width=`${(598/20)*totalBars}px`;
-    getArray(totalBars);
-    getIndex(totalBars);
-    }
-    document.getElementById("sizeCount").innerText = totalBars;
-}
-
-function decrementSize() {
-    if(totalBars > 15)
-    {
-    totalBars--;
-    container.style.width=`${(598/20)*totalBars}px`;
-    getArray(totalBars);
-    getIndex(totalBars);
-    }
-    document.getElementById("sizeCount").innerText = totalBars;
-}
-
 
   function deleteChild() {
     count_container.innerHTML = '';
@@ -82,20 +58,23 @@ function decrementSize() {
     document.querySelector("#sizeArray").disabled= false;
     document.querySelector("#sizeArray2").disabled = false;
   }
+  
+  function newRandom(){
+    location.reload();
+  }
+
+function play()
+{
+  HeapSort(totalBars);
+}
 
   newArray.addEventListener("click",function(){
     enableSortingBtn();
-    enableArraySizeBtn();
-    getArray(totalBars);
-    getIndex(totalBars);
+    newRandom();
   });
 
   sortBtn.addEventListener("click", async function(){
     disableSortingBtn();
     disableNewArray()
-    disableArraySizeBtn();
     play();
    });
-
-   getArray(totalBars);
-   getIndex(totalBars);
