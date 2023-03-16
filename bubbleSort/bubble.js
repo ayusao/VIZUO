@@ -24,6 +24,7 @@ function initialize(size = arraySize) {
   // Stop any ongoing sorting process
   if (sortingProcess) {
     clearTimeout(sortingProcess);
+    sizeElement.disabled = false;
   }
 
   // Generate a new array of random values
