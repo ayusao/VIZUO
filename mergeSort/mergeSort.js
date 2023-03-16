@@ -149,7 +149,7 @@ new_array_btn.addEventListener("click",function(){
   enableSortingBtn();
   enableArraySizeBtn();
   generateBar(numOfBars);
-})
+});
 
 sort_btn.addEventListener("click", async function(){
  disableSortingBtn();
