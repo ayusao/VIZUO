@@ -11,13 +11,13 @@ regenerate.addEventListener("click", () => {
 
 home1.addEventListener("click", () => {
     console.log("Returning to home page");
-    document.location.href = '../index.html';
+    document.location.href = '../main.html';
 });
 
 home2.addEventListener("click", () => {
     complete.style.display = "none";//make the div disappear
     console.log("Returning to home page");
-    document.location.href = '../index.html';
+    document.location.href = '../main.html';
 });
 
 let form = document.querySelector("#controls");
