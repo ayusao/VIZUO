@@ -8,7 +8,7 @@ function lead(n){
           location.href = 'linearSearch/linearSearch.html';
           break;
       default:
-          location.href = 'main.html';
+          location.href = 'linearSearch/linearSearch.html';
           break;
   }
 }
