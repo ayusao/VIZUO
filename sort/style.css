@@ -18,10 +18,12 @@ h3{
 h2{
     position: absolute;
     padding: 10 10px;
-    top : 20%;
+    top : 10%;
     font-size: 60px;
     color:beige;
     cursor: pointer;
+    margin-top: 0px;
+    margin-bottom: 20px;
 }
 
 body {
@@ -61,21 +63,22 @@ h2:hover,p:hover{
 
 .home{
     display:flex;
-    margin-top: 5%;
-    margin-left: 46%;
+    margin-top: 2%;
+    margin-left: 45%;
 }
 
 .select{
     display:inline-flex;
     justify-content: center;
     margin-left:6%;
-    margin-top: 5%;
+    margin-top: 2%;
 }
 
 .description{
-    margin-left:6%;
-    margin-right:6%;
-    margin-top: 10%;;
+    margin-left: 150px;
+    margin-right: 150px;
+    margin-top: 10%;
+    margin-bottom: 5%;
     font-size: 20px;
     color: beige;
     align-items: center;
