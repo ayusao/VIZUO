@@ -1,5 +1,3 @@
-let flag = 1;
-
 async function insertion(){
     console.log('Insertion sort()');
     const ele = document.querySelectorAll(".bar");//all the divs with the class bar
@@ -41,11 +39,9 @@ inSortbtn.addEventListener('click', async function(){
     disableSortingBtn();
     disableSizeSlider();
     disableNewArrayBtn();
-    disableHomeBtn();
     await insertion();
     enableSortingBtn();
     enableSizeSlider();
     enableNewArrayBtn();
-    enableHomeBtn();
 });
 

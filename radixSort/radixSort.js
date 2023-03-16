@@ -2,35 +2,33 @@ let arr = [];
 
 var speed = 1;
 document.getElementById("counting").innerText = speed;
-  
+
 function increment() {
     if (speed < 4)
-    speed = speed + 1;
+        speed = speed + 1;
     document.getElementById("counting").innerText = speed;
 }
 function decrement() {
-    if(speed > 1)
-    speed = speed - 1;
+    if (speed > 1)
+        speed = speed - 1;
     document.getElementById("counting").innerText = speed;
 }
 
 var totalBars = 20;
 document.getElementById("sizeCount").innerText = totalBars;
 function incrementSize() {
-    if (totalBars < 30)
-    {
-    totalBars++;
-    getArray(totalBars);
-    getIndex(totalBars);
+    if (totalBars < 30) {
+        totalBars++;
+        getArray(totalBars);
+        getIndex(totalBars);
     }
     document.getElementById("sizeCount").innerText = totalBars;
 }
 function decrementSize() {
-    if(totalBars > 10)
-    {
-    totalBars--;
-    getArray(totalBars);
-    getIndex(totalBars);
+    if (totalBars > 10) {
+        totalBars--;
+        getArray(totalBars);
+        getIndex(totalBars);
     }
     document.getElementById("sizeCount").innerText = totalBars;
 }
@@ -38,17 +36,16 @@ function decrementSize() {
 var container = document.getElementById("array");
 function deleteChild() {
     count_container.innerHTML = '';
-  }
-  function deleteChildArray() {
+}
+function deleteChildArray() {
     container.innerHTML = '';
-  }
+}
 
 function getArray(b) {
-    
+
     deleteChildArray();
-    for(var i=0;i<b;i++)
-    {
-        var randomValue = Math.ceil(Math.random()*100);
+    for (var i = 0; i < b; i++) {
+        var randomValue = Math.ceil(Math.random() * 100);
 
         var arrayElement = document.createElement("div");
 
@@ -66,12 +63,11 @@ function getArray(b) {
     }
 }
 
-var count_container  = document.getElementById("count");
+var count_container = document.getElementById("count");
 
 function getIndex(b) {
     deleteChild();
-    for(var i=0;i<b;i++)
-    {
+    for (var i = 0; i < b; i++) {
         var arrayElement2 = document.createElement("div");
 
         arrayElement2.classList.add("block2");
@@ -88,92 +84,106 @@ function getIndex(b) {
     }
 }
 
-async function delay(m)
-{
-  await new Promise((resolve) =>
-  setTimeout(() => {
-    resolve();
-  }, m - (speed*250)) );
+async function delay(m) {
+    await new Promise((resolve) =>
+        setTimeout(() => {
+            resolve();
+        }, m - (speed * 250)));
 }
 // Radix sort Javascript implementation
 
- 
+
 // A utility function to get maximum value in arr[]
- function getMax(arr,n)
-{
+function getMax(arr, n) {
     let mx = arr[0];
-        for (let i = 1; i < n; i++)
-            if (arr[i] > mx)
-                mx = arr[i];
-        return mx;
+    for (let i = 1; i < n; i++)
+        if (arr[i] > mx)
+            mx = arr[i];
+    return mx;
 }
- 
+
 // A function to do counting sort of arr[] according to
-    // the digit represented by exp.
-function countSort(arr,n,exp)
-{
+// the digit represented by exp.
+function countSort(arr, n, exp) {
     var blocks = document.querySelectorAll(".block");
     let output = new Array(n); // output array
-        let i;
-        let count = new Array(10);
-        for(let i=0;i<10;i++)
-            count[i]=0;
-  
-        // Store count of occurrences in count[]
-        for (i = 0; i < n; i++)
-            count[Math.floor(arr[i] / exp) % 10]++;
-  
-        // Change count[i] so that count[i] now contains
-        // actual position of this digit in output[]
-        for (i = 1; i < 10; i++)
-            count[i] += count[i - 1];
-  
-        // Build the output array
+    let i;
+    let count = new Array(10);
+    for (let i = 0; i < 10; i++)
+        count[i] = 0;
 
-        for (i = n - 1; i >= 0; i--) {
-            output[count[Math.floor(arr[i] / exp) % 10] - 1] = arr[i];
-            count[Math.floor(arr[i] / exp) % 10]--;
-        }
-        for (i = 0; i < n; i++)
-        {
-         arr[i] = output[i];
-         blocks[i].style.height = `${output[i]*3}px`;
-         blocks[i].childNodes[0].innerText = output[i];
-        }
+    // Store count of occurrences in count[]
+    for (i = 0; i < n; i++)
+        count[Math.floor(arr[i] / exp) % 10]++;
+
+    // Change count[i] so that count[i] now contains
+    // actual position of this digit in output[]
+    for (i = 1; i < 10; i++)
+        count[i] += count[i - 1];
+
+    // Build the output array
+
+    for (i = n - 1; i >= 0; i--) {
+        output[count[Math.floor(arr[i] / exp) % 10] - 1] = arr[i];
+        count[Math.floor(arr[i] / exp) % 10]--;
+    }
+    for (i = 0; i < n; i++) {
+        arr[i] = output[i];
+        playNote(700);
+        blocks[i].style.height = `${output[i] * 3}px`;
+        blocks[i].childNodes[0].innerText = output[i];
+    }
 }
 
-async function radixsort(arr,n)
-{
+async function radixsort(arr, n) {
     var blocks = document.querySelectorAll(".block");
     var indexBox = document.querySelectorAll(".block2");
-    for(var j =0;j<totalBars;j++)
-    {
+    for (var j = 0; j < totalBars; j++) {
         arr[j] = Number(blocks[j].childNodes[0].innerText);
     }
     // Find the maximum number to know number of digits
-        let m = getMax(arr, n);
-  
-        // Do counting sort for every digit. Note that
-        // instead of passing digit number, exp is passed.
-        // exp is 10^i where i is current digit number
-        for (let exp = 1; Math.floor(m / exp) > 0; exp *= 10)
-           { 
-            await delay(2000);
-            countSort(arr, n, exp)
-           }
-    for(var k=0;k<totalBars;k++)
-    {
-    blocks[k].style.backgroundColor = "rgb(26, 129, 26)";
-    indexBox[k].style.backgroundColor = "rgb(26, 129, 26)";
+    let m = getMax(arr, n);
+
+    // Do counting sort for every digit. Note that
+    // instead of passing digit number, exp is passed.
+    // exp is 10^i where i is current digit number
+    for (let exp = 1; Math.floor(m / exp) > 0; exp *= 10) {
+        await delay(2000);
+        countSort(arr, n, exp)
+    }
+    for (var k = 0; k < totalBars; k++) {
+        playNote(700);
+        blocks[k].style.backgroundColor = "rgb(26, 129, 26)";
+        indexBox[k].style.backgroundColor = "rgb(26, 129, 26)";
     }
 }
- 
-function newRandom(){
+
+function newRandom() {
     location.reload();
-  }
+}
 getArray(totalBars);
 getIndex(totalBars);
 
-function play(){
-radixsort(arr, totalBars);
+function play() {
+    radixsort(arr, totalBars);
+}
+
+let audioCtx = null;
+
+function playNote(freq) {
+    if (audioCtx == null) {
+        audioCtx = new (AudioContext ||
+            webkitAudioContext ||
+            window.webkitAudioContext)();
+    }
+    const dur = 0.1;
+    const osc = audioCtx.createOscillator();
+    osc.frequency.value = freq;
+    osc.start();
+    osc.stop(audioCtx.currentTime + dur);
+    const node = audioCtx.createGain();
+    node.gain.value = 0.05;
+
+    osc.connect(node);
+    node.connect(audioCtx.destination);
 }

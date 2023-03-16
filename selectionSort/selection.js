@@ -59,6 +59,8 @@ function animate(swaps) {
   sortingProcess = setTimeout(function () {
     animate(swaps);
   }, delay);
+  playNote(200+i*200);
+  playNote(400+j*400);
 }
 
 function selectionSort(array) {
@@ -96,3 +98,26 @@ function showbars(indices) {
     container1.appendChild(bar);
   }
 }
+
+let audioCtx = null;
+
+function playNote(freq)
+{
+    if(audioCtx==null)
+    {
+        audioCtx= new(AudioContext||
+            webkitAudioContext ||
+            window.webkitAudioContext)();
+    }
+    const dur = 0.1;
+    const osc = audioCtx.createOscillator();
+    osc.frequency.value = freq;
+    osc.start();
+    osc.stop(audioCtx.currentTime+dur);
+    const node = audioCtx.createGain();
+    node.gain.value = 0.05;
+
+    osc.connect(node);
+    node.connect(audioCtx.destination);
+}
+
