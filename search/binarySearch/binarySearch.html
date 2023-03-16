@@ -13,19 +13,23 @@
   <div id="bar_container"></div>
   <div id="bar_pos_container"></div>
   <br/><br/>
-  <div style="text-align:center">
+  <div class="textClass" style="text-align:center">
      <label for="fname">
       Number to be searched:
      </label>
      <input type="text" id="inputedData" name="inputedData" />
+     <input type="button" id="search_btn" value="SEARCH"/>
+     <input type="button" id="new_array_btn" value="NEW DATA"/>
      <br/><br/>
-     <div type="text" id="output_text"></div>
-     <div type="text" id="output_text2"></div>
+     <div type="textOut" id="output_text"></div>
+     <div type="textOut" id="output_text2"></div>
+     <div type="textOut" id="data_text"></div>
      <div id="data_text"></div>
   </div>
-  <div class="button_container">
-    <button id="new_array_btn">NEW DATA</button>
-    <button id="search_btn">SEARCH</button>
+  <div class="col" id="input">
+    <span id="speed">SPEED
+        <input id="speed_input" type="range" min="20" max="300" stepDown=10 value=60>
+    </span>
   </div>
   <script src="binarySearch.js"></script>
 </body>

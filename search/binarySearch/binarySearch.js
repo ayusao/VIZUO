@@ -6,11 +6,18 @@ const minValue=5;
 let unsortedArray=[];
 let sortedArray=[];
 let delay=300;
+let delayElement = document.querySelector('#speed_input');
 let search_btn=document.getElementById("search_btn");
+let new_array_btn=document.getElementById("new_array_btn");
 
 function deleteChild(){
   container.innerHTML='';
+  positionContainer.innerHTML='';
 }
+
+delayElement.addEventListener('input', function(){
+  delay = 320 - parseInt(delayElement.value);//the more the slider goes right, lesser the delay value ie faster the speed
+});
 
 function generateRandomNum(min,max)
 {
@@ -98,7 +105,7 @@ async function binarySearch(array){
 
   //Extracting value of element to be searched
   let num=document.getElementById("inputedData").value;
-  console.log(num);
+  //console.log(num);
  // num=`${num*4}px`;
 
   for(let i=0;i<bars.length;i++)
@@ -125,13 +132,10 @@ async function binarySearch(array){
     await timeDelay(delay);
     await timeDelay(delay);
     await timeDelay(delay);
-    console.log("hi");
+    //console.log("hi");
     if(value==num)
     {
       pos=midd;
-      output.innerText="Element Found.";
-      output2.innerText="The Position Of element In array is:";
-      dataOutput.innerText=pos;
       await timeDelay(delay);
       bars[midd].style.backgroundColor="red";
       for(i=0;i<midd;i++)
@@ -142,9 +146,12 @@ async function binarySearch(array){
       {
         bars[i].style.backgroundColor="grey";
       }
-      console.log("hi2");
+     // console.log("hi2");
       await timeDelay(delay);
-      console.log("hi1");
+      output.innerText="Element Found.";
+      output2.innerText="The Position Of element In array is:";
+      dataOutput.innerText=pos;
+      //console.log("hi1");
       break;
     }
    if(value>num)
@@ -157,7 +164,7 @@ async function binarySearch(array){
       {
         bars[i].style.backgroundColor="grey";
       }
-      console.log("hi2");
+      //console.log("hi2");
       await timeDelay(delay);
     }
     else //if(value<num)
@@ -170,7 +177,7 @@ async function binarySearch(array){
       {
         bars[i].style.backgroundColor="grey";
       }
-      console.log("hi3");
+      //console.log("hi3");
       await timeDelay(delay);
     }
   }
@@ -180,6 +187,14 @@ async function binarySearch(array){
   }
 }
 
+new_array_btn.addEventListener("click",function(){
+  //enableSortingBtn();
+ // enableArraySizeBtn();
+ generateArray(numOfBars);
+ sortedArray=shellSort(unsortedArray);
+ generateBar(sortedArray);
+ displayBarPosition(sortedArray);
+});
 search_btn.addEventListener("click",function(){
   binarySearch(sortedArray);
 });

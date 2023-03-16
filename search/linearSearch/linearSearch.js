@@ -5,11 +5,18 @@ const maxValue=100;
 const minValue=5;
 let unsortedArray=[];
 let delay=300;
+let delayElement = document.querySelector('#speed_input');
 let search_btn=document.getElementById("search_btn");
+let new_array_btn=document.getElementById("new_array_btn");
 
 function deleteChild(){
   container.innerHTML='';
+  positionContainer.innerHTML='';
 }
+
+delayElement.addEventListener('input', function(){
+  delay = 320 - parseInt(delayElement.value);//the more the slider goes right, lesser the delay value ie faster the speed
+});
 
 function generateRandomNum(min,max)
 {
@@ -97,9 +104,6 @@ async function linearSearch(array)
      if(value==num)
      {
       pos=i;
-      output.innerText="Element Found.";
-      output2.innerText="The Position Of element In array is:";
-      dataOutput.innerText=pos;
       await timeDelay(delay);
       bars[i].style.backgroundColor="red";
       await timeDelay(delay);
@@ -107,6 +111,10 @@ async function linearSearch(array)
       {
         bars[j].style.backgroundColor="grey";
       }
+      await timeDelay(delay);
+      output.innerText="Element Found.";
+      output2.innerText="The Position Of element In array is:";
+      dataOutput.innerText=pos;
       break;
     }
     await timeDelay(delay);
@@ -117,6 +125,14 @@ async function linearSearch(array)
     output.innerHTML="Element Not Found";
   }
 }
+
+new_array_btn.addEventListener("click",function(){
+  //enableSortingBtn();
+ // enableArraySizeBtn();
+ generateArray(numOfBars);
+ generateBar(unsortedArray);
+ displayBarPosition(unsortedArray);
+});
 search_btn.addEventListener("click",function(){
   linearSearch(unsortedArray);
 });
