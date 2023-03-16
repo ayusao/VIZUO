@@ -87,11 +87,9 @@ quickSortbtn.addEventListener('click', async function () {
     disableSortingBtn();
     disableSizeSlider();
     disableNewArrayBtn();
-    disableHomeBtn();
     await quicksort(ele, beg, end);
     enableSortingBtn();
     enableSizeSlider();
     enableNewArrayBtn();
-    enableHomeBtn();
 });
 

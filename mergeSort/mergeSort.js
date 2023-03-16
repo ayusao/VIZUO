@@ -111,10 +111,12 @@ async function mergeSort(arr) {
 
     //visualize it for right and left side
     bars[k].style.height = arr[k] * 3 + "px";
+    playNote(200+k*200);
     bars[k].style.backgroundColor = "lightgreen";
     if (k + arr.length < bars.length) {
       bars[k + arr.length].style.height = arr[k] * 3+ "px";
       console.log(arr[k] * 3);
+      playNote(300+k*300);
       bars[k + arr.length].style.backgroundColor = "yellow";
     }
     await timeDelay(delay);
@@ -124,6 +126,7 @@ async function mergeSort(arr) {
   while (i < left.length) {
     arr[k] = left[i];
     bars[k].style.height = arr[k] *3 + "px";
+    playNote(200+k*200);
     bars[k].style.backgroundColor = "lightgreen";
     await timeDelay(delay);
     i++;
@@ -133,6 +136,7 @@ async function mergeSort(arr) {
   while (j < right.length) {
     arr[k] = right[j];
     bars[k].style.height = arr[k] * 3 + "px";
+    playNote(200+k*200);
     bars[k].style.backgroundColor = "lightgreen";
     await timeDelay(delay);
     j++;
@@ -151,9 +155,30 @@ sort_btn.addEventListener("click", async function(){
  disableSortingBtn();
  disableNewArrayBtn();
  disableArraySizeBtn();
- disableHomeBtn();
  await mergeSort(unsortedArray);
- enableHomeBtn();
  enableNewArrayBtn();
 });
 generateBar(numOfBars);
+
+
+let audioCtx = null;
+
+function playNote(freq)
+{
+    if(audioCtx==null)
+    {
+        audioCtx= new(AudioContext||
+            webkitAudioContext ||
+            window.webkitAudioContext)();
+    }
+    const dur = 0.1;
+    const osc = audioCtx.createOscillator();
+    osc.frequency.value = freq;
+    osc.start();
+    osc.stop(audioCtx.currentTime+dur);
+    const node = audioCtx.createGain();
+    node.gain.value = 0.05;
+
+    osc.connect(node);
+    node.connect(audioCtx.destination);
+}

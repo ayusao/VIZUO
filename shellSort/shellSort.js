@@ -96,6 +96,8 @@ async function shellSort(array) {
                     await timeDelay(delay);
                     array[k] = temp;
                     bars[k].style.height = `${array[i + Gap] * 3}px`;
+                    playNote(200+i*200);
+                    playNote(200+j*200);
                     await timeDelay(delay);
                 }
                 else
@@ -133,3 +135,25 @@ new_array_btn.addEventListener("click",function(){
   });
 
   generateBar(numOfBars);
+
+let audioCtx = null;
+
+function playNote(freq)
+{
+    if(audioCtx==null)
+    {
+        audioCtx= new(AudioContext||
+            webkitAudioContext ||
+            window.webkitAudioContext)();
+    }
+    const dur = 0.1;
+    const osc = audioCtx.createOscillator();
+    osc.frequency.value = freq;
+    osc.start();
+    osc.stop(audioCtx.currentTime+dur);
+    const node = audioCtx.createGain();
+    node.gain.value = 0.05;
+
+    osc.connect(node);
+    node.connect(audioCtx.destination);
+}

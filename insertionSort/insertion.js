@@ -8,6 +8,10 @@ async function insertion(){
         let j = i - 1;
         let key = ele[i].style.height;
 
+        //for last elem, if it is not to be moved color it green
+        if(i==ele.length-1 && (parseInt(ele[j].style.height) <= parseInt(key)))
+            ele[i].style.background = 'green';
+
         while(j >= 0 && (parseInt(ele[j].style.height) > parseInt(key))){
             console.log('Shifting');
             ele[i].style.background = 'purple';//selected element
@@ -35,11 +39,9 @@ inSortbtn.addEventListener('click', async function(){
     disableSortingBtn();
     disableSizeSlider();
     disableNewArrayBtn();
-    disableHomeBtn();
     await insertion();
     enableSortingBtn();
     enableSizeSlider();
     enableNewArrayBtn();
-    enableHomeBtn();
 });
 

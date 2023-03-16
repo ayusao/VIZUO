@@ -92,10 +92,13 @@ async function Heapify(n, i) {
     
     // If largest is not root
     if (largest != i) {
+
       blocks[i].style.backgroundColor = "red";
       blocks[largest].style.backgroundColor = "red";
 
          await delay(800);
+         playNote(500+i*200);
+         playNote(200+i*200);
 
       var temp1 = blocks[i].style.height;
       var temp2 = blocks[i].childNodes[0].innerText;
@@ -145,6 +148,8 @@ async function Heapify(n, i) {
       blocks[0].style.backgroundColor = "#6b5b95";
       blocks[i].style.backgroundColor = "rgb(26, 129, 26)";
       indexBox[i].style.backgroundColor = "rgb(26, 129, 26)";
+      playNote(500+i*200);
+      playNote(200+i*200);
     
       await delay(1000);
       // Call max Heapify on the reduced heap
@@ -166,4 +171,26 @@ async function Heapify(n, i) {
 function play()
 {
   HeapSort(totalBars);
+}
+
+let audioCtx = null;
+
+function playNote(freq)
+{
+    if(audioCtx==null)
+    {
+        audioCtx= new(AudioContext||
+            webkitAudioContext ||
+            window.webkitAudioContext)();
+    }
+    const dur = 0.1;
+    const osc = audioCtx.createOscillator();
+    osc.frequency.value = freq;
+    osc.start();
+    osc.stop(audioCtx.currentTime+dur);
+    const node = audioCtx.createGain();
+    node.gain.value = 0.05;
+
+    osc.connect(node);
+    node.connect(audioCtx.destination);
 }
