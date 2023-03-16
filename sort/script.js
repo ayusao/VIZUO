@@ -26,7 +26,7 @@ function lead(n){
             location.href = 'shellSort/shell.html';
             break;
         case 9: 
-            location.href = 'maze/maze.html';
+            location.href = '../main.html';
             break;
         default:
             location.href = 'shellSort/shell.html';

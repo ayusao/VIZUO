@@ -7,8 +7,11 @@ function lead(n){
       case 2:
           location.href = 'linearSearch/linearSearch.html';
           break;
+      case 3:
+          location.href = '../main.html';
+          break;
       default:
-          location.href = 'linearSearch/linearSearch.html';
+          location.href = '../main.html';
           break;
   }
 }
