@@ -13,8 +13,14 @@ h1{
     color:beige;
     margin-bottom: 160px;
 }
+h2{
+    text-align: center;
+    margin-top: 30px;
+    font-size: 40px;
+    color:beige;
+}
 .buttonclass{
-
+    margin-top: 5%;
     display: flex;
     align-items: center;
     justify-content: center;
