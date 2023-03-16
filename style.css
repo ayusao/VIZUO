@@ -17,16 +17,6 @@ h2{
     color:beige;
     cursor: pointer;
 }
-
-p{
-    position: absolute;
-    padding: 10 10px;
-    bottom : 20%;
-    color:beige;
-    font-size: 25px;
-    cursor: pointer;
-}
-
 body {
     display:flex;
     align-items: center;
@@ -45,11 +35,6 @@ button {
     background-color: #6b5b95;
     border-color: #202528;
     transition: background-color 0.3s;
-}
-
-#mazebutton {
-    margin-top: 500px;
-    position: absolute;
 }
 
 .btn:hover{
