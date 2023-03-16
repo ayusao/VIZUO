@@ -12,31 +12,41 @@
 h2{
     position: absolute;
     padding: 10 10px;
-    top : 20%;
+    top : 10%;
     font-size: 60px;
     color:beige;
     cursor: pointer;
 }
 .description{
-    margin-top: 40px;
-    font-size: 20px;
+    margin-top: 30px;
     color: beige;
+    text-align: center;
+    justify-content: center;
+}
+p{
+    text-align: center;
+    font-size: 22px;
+    margin: 30px 150px;
 }
 h3{
     text-align: center;
-    margin-top: 30px;
+    margin-bottom: 40px;
     font-size: 40px;
     color:beige;
     cursor:pointer;
 }
-
 body {
     display:flex;
     align-items: center;
     justify-content: center;
     height: 100vh;
-       }
-
+}
+.buttonclass{
+   margin-top: 5%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
 button {
     padding: 10px;
     border: none;
@@ -51,19 +61,16 @@ button {
     border-color: #202528;
     transition: background-color 0.3s;
 }
-.btn1{
-    margin-left: 550px;
-}
 
 .btn:hover,.btn1:hover{
     background-color: cadetblue;
     color: black;
 }
 
-.btn:active,.btn1:active{
+.btn:active{
     opacity:0.6;
 }
 
-h2:hover,p:hover, h3:hover{
+h2:hover, h3:hover{
     color:cadetblue;
 }
