@@ -29,7 +29,7 @@ function lead(n){
             location.href = '../main.html';
             break;
         default:
-            location.href = 'shellSort/shell.html';
+            location.href = '../main.html';
             break;
     }
 }
