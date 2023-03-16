@@ -1,6 +1,22 @@
 var container = document.getElementById("heapArray");
 let totalBars = 20;
 
+  
+var speed = 0.5;
+document.getElementById("counting").innerText = speed;
+  
+function increment() {
+    if (speed < 2)
+    speed = speed + 0.5;
+    document.getElementById("counting").innerText = speed;
+}
+function decrement() {
+    if(speed > 0.5)
+    speed = speed - 0.5;
+    document.getElementById("counting").innerText = speed;
+}
+
+//to create the bars
 function getArray() {
     for(var i=0;i<totalBars;i++)
     {
@@ -21,6 +37,7 @@ function getArray() {
     }
 }
 
+//to create the index at bottom of the bars
 var count_container  = document.getElementById("count");
 
 function getIndex() {
@@ -47,7 +64,7 @@ async function delay(m)
   await new Promise((resolve) =>
   setTimeout(() => {
     resolve();
-  }, m)
+  }, m - (speed*250))
 );
 }
 
@@ -78,7 +95,7 @@ async function Heapify(n, i) {
       blocks[i].style.backgroundColor = "red";
       blocks[largest].style.backgroundColor = "red";
 
-         await delay(300);
+         await delay(800);
 
       var temp1 = blocks[i].style.height;
       var temp2 = blocks[i].childNodes[0].innerText;
@@ -89,7 +106,7 @@ async function Heapify(n, i) {
       blocks[largest].childNodes[0].innerText = temp2;
 
       main();
-      await delay(300);
+      await delay(800);
  
       blocks[i].style.backgroundColor = "#6b5b95";
       blocks[largest].style.backgroundColor = "#6b5b95";
@@ -114,7 +131,7 @@ async function Heapify(n, i) {
     
       blocks[i].style.backgroundColor = "aqua";
       blocks[0].style.backgroundColor = "aqua";
-      await delay(300);
+      await delay(800);
       // Move current root to end
       var temp1 = blocks[i].style.height;
       var temp2 = blocks[i].childNodes[0].innerText;
@@ -129,7 +146,7 @@ async function Heapify(n, i) {
       blocks[i].style.backgroundColor = "rgb(26, 129, 26)";
       indexBox[i].style.backgroundColor = "rgb(26, 129, 26)";
     
-      await delay(500);
+      await delay(1000);
       // Call max Heapify on the reduced heap
       await Heapify(i, 0);
     }
@@ -143,6 +160,8 @@ async function Heapify(n, i) {
 
  getArray();
  getIndex();
+
+
 
 function play()
 {

@@ -11,10 +11,23 @@
     <h1 class="header">RADIX SORT</h1>
     <div id="array"></div>
     <div id="count"></div>
-    <div>
-        <button class="btn1" onclick="newRandom()">NEW RANDOM</button>
-        <button class="btn2" onclick="play()">START SORTING</button>
-        <button class="return" onclick ="location.href = '../index.html'">HOME</button>
+    <div class="buttonContainer">
+        <button class="btn" onclick="newRandom()">NEW RANDOM</button>
+        <button class="btn" onclick="play()">START SORTING</button>
+        <button class="btn" onclick ="location.href = '../index.html'">HOME</button>
+        <div class = "controlContainer">
+            <button class="btn1" onclick="decrement()"> - </button> 
+        <h2 id="counting"></h2>
+        <h2>x</h2>
+            <button class="btn1 plusbutton" onclick="increment()"> + </button>
+            <p>SPEED</p>
+        </div>
+        <div class = "controlContainer2">
+            <button class="btn1" onclick="decrementSize()"> - </button> 
+        <h2 id="sizeCount"></h2>
+            <button class="btn1" onclick="incrementSize()"> + </button>
+            <p>SIZE</p>
+        </div>
     </div>
     <script src="radixSort.js"></script>
 </body>
