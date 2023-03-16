@@ -45,11 +45,10 @@ button {
 }
 
 .description{
-    margin-top: 10px;
     font-size: 20px;
     color: beige;
-    margin-left:150px;
-    margin-right:150px;
+    margin: 10px 150px; /*tb-lr*/
+    text-align: center;
 }
 p{
     bottom: 5%;
