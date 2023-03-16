@@ -17,6 +17,17 @@ h2{
     color:beige;
     cursor: pointer;
 }
+.description{
+    margin-top: 40px;
+    font-size: 20px;
+    color: beige;
+}
+h3{
+    text-align: center;
+    margin-top: 30px;
+    font-size: 40px;
+    color:beige;
+}
 
 body {
     display:flex;
@@ -30,6 +41,8 @@ button {
     border: none;
     border-radius: 40px;
     margin: 3px;
+    margin-top: 20px;
+    margin-left:60px;
     cursor: pointer;
     font-size: 20px;
     color:bisque;
@@ -37,13 +50,16 @@ button {
     border-color: #202528;
     transition: background-color 0.3s;
 }
+.btn1{
+    margin-left: 550px;
+}
 
-.btn:hover{
+.btn:hover,.btn1:hover{
     background-color: cadetblue;
     color: black;
 }
 
-.btn:active{
+.btn:active,.btn1:active{
     opacity:0.6;
 }
 
