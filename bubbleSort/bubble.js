@@ -20,7 +20,7 @@ sizeElement.addEventListener('input', function(){
 });
 
 // for generating random values
-function initialize(size) {
+function initialize(size = arraySize) {
   // Stop any ongoing sorting process
   if (sortingProcess) {
     clearTimeout(sortingProcess);
@@ -33,7 +33,13 @@ function initialize(size) {
   }
   
   showbars();
+  
+  // Update the arraySize variable if a size is provided
+  if (size !== undefined) {
+    arraySize = size;
+  }
 }
+
 
 function play() {
   const copyarray = [...array];
