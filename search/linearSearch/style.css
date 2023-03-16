@@ -7,7 +7,7 @@
 .header{
   font-size: 30px;
   text-align: center;
-  margin-top: 20px;
+  margin-top: 40px;
 }
 h1{
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
@@ -21,7 +21,7 @@ h1{
   width:598px;
   margin: auto;
   position: relative;
-  margin-top: 140px;
+  margin-top: 170px;
 }
 .bar{
   width: 25px;
@@ -56,31 +56,28 @@ h1{
   width:100%;
   text-align: center;
 }
-#new_array_btn{
-  margin: 30px 6px;
-  height:50px;
-  position: absolute;
-  left: 40%;
-  padding: 7px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 20px;
-  text-align: center;
+.textClass{
   color:#fff;
-  background-color: #6b5b95;
 }
-#search_btn{
-  margin: 30px 6px;
-  height:50px;
-  position: absolute;
-  left: 55%;
-  padding: 7px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 20px;
-  text-align: center;
-  color:#fff;
-  background-color: #6b5b95;
+input[type="text"] {
+  background-color: #fff;
+  color: #000;
+}
+input[type="button"] {
+  background-color:#fff;
+  color: #000;
+  padding: 4px;
+}
+div[type="textOut"] {
+  color:aquamarine;
+}
+#input{
+  display: flex;
+  padding: 10px;
+  justify-content: space-around;
+  width: 400px;
+  margin-top:-50px;
+}
+#speed{
+  color: #fff;
 }
