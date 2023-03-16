@@ -1,48 +1,6 @@
-let arr = [];
-
-var speed = 1;
-document.getElementById("counting").innerText = speed;
-  
-function increment() {
-    if (speed < 4)
-    speed = speed + 1;
-    document.getElementById("counting").innerText = speed;
-}
-function decrement() {
-    if(speed > 1)
-    speed = speed - 1;
-    document.getElementById("counting").innerText = speed;
-}
-
-var totalBars = 20;
-document.getElementById("sizeCount").innerText = totalBars;
-function incrementSize() {
-    if (totalBars < 30)
-    {
-    totalBars++;
-    getArray(totalBars);
-    getIndex(totalBars);
-    }
-    document.getElementById("sizeCount").innerText = totalBars;
-}
-function decrementSize() {
-    if(totalBars > 10)
-    {
-    totalBars--;
-    getArray(totalBars);
-    getIndex(totalBars);
-    }
-    document.getElementById("sizeCount").innerText = totalBars;
-}
+let arr = [];  
 
 var container = document.getElementById("array");
-function deleteChild() {
-    count_container.innerHTML = '';
-  }
-  function deleteChildArray() {
-    container.innerHTML = '';
-  }
-
 function getArray(b) {
     
     deleteChildArray();
@@ -96,8 +54,6 @@ async function delay(m)
   }, m - (speed*250)) );
 }
 // Radix sort Javascript implementation
-
- 
 // A utility function to get maximum value in arr[]
  function getMax(arr,n)
 {
@@ -166,14 +122,9 @@ async function radixsort(arr,n)
     blocks[k].style.backgroundColor = "rgb(26, 129, 26)";
     indexBox[k].style.backgroundColor = "rgb(26, 129, 26)";
     }
+    enableNewArray();
 }
- 
-function newRandom(){
-    location.reload();
-  }
-getArray(totalBars);
-getIndex(totalBars);
-
-function play(){
-radixsort(arr, totalBars);
+function play()
+{
+    radixsort(arr,totalBars);
 }
