@@ -40,6 +40,7 @@ if (size !== undefined) {
 }
 
 function play() {
+  sizeElement.disabled = true;
   const copyarray = [...array];
   const swapping = selectionSort(copyarray);
   animate(swapping);
@@ -48,6 +49,7 @@ function play() {
 function animate(swaps) {
   if (swaps.length == 0) {
     showbars();
+    sizeElement.disabled = false;
     return;
   }
   const [i, j] = swaps.shift();
