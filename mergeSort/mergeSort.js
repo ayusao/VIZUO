@@ -155,9 +155,7 @@ sort_btn.addEventListener("click", async function(){
  disableSortingBtn();
  disableNewArrayBtn();
  disableArraySizeBtn();
- disableHomeBtn();
  await mergeSort(unsortedArray);
- enableHomeBtn();
  enableNewArrayBtn();
 });
 generateBar(numOfBars);
