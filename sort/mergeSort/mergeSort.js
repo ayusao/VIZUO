@@ -5,7 +5,7 @@ const minValue=5;
 let unsortedArray=[];
 let sort_btn=document.getElementById("sort_btn");
 let new_array_btn=document.getElementById("new_array");
-let return_btn=document.getElementsByClassName("return");
+//let return_btn=document.getElementsByClassName("return");
 let delay = 260;
 let delayElement = document.querySelector('#speed_input');
 let arraySize=document.querySelector("#array_size");
@@ -30,14 +30,6 @@ function disableSortingBtn(){
 
 function enableSortingBtn(){
   document.querySelector("#sort_btn").disabled = false;
-}
-function disableHomeBtn(){
-  document.querySelector(".return").disabled = true;
-}
-
-function enableHomeBtn(){
-  return_btn.style.backgroundColor="#6b5b95";
-  document.querySelector(".return").disabled = false;
 }
 
 function disableNewArrayBtn(){
