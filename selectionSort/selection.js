@@ -1,8 +1,11 @@
-const n = 20;
-const array = [];
+const defaultArraySize = 20;
+
+let arraySize = defaultArraySize;
+let array = [];
 var sortingProcess;
 
-initialize();
+initialize(arraySize);
+let sizeElement = document.querySelector('#size-slider');
 let delay = 260;
 let delayElement = document.querySelector('#speed_input');
 
@@ -10,19 +13,30 @@ delayElement.addEventListener('input', function(){
     delay = 320 - parseInt(delayElement.value);//the more the slider goes right, lesser the delay value ie faster the speed
 });
 
-//for generating random values
-function initialize() {
-  // Stop any ongoing sorting process
-  if (sortingProcess) {
-    clearTimeout(sortingProcess);
-  }
+sizeElement.addEventListener('input', function(){
+  arraySize = parseInt(sizeElement.value);
+  initialize(arraySize);
+});
 
-  // Generate a new array of random values
-  for (var i = 0; i < n; i++) {
-    array[i] = Math.random();
-  }
+// for generating random values
+function initialize(size = arraySize) {
+// Stop any ongoing sorting process
+if (sortingProcess) {
+  clearTimeout(sortingProcess);
+}
 
-  showbars();
+// Generate a new array of random values
+array = [];
+for (var i = 0; i < size; i++) {
+  array[i] = Math.random();
+}
+
+showbars();
+
+// Update the arraySize variable if a size is provided
+if (size !== undefined) {
+  arraySize = size;
+}
 }
 
 function play() {

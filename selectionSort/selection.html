@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bubble Sort</title>
+    <title>Selection Sort</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -16,12 +16,16 @@
         <button class="button" onclick="initialize()">New Array</button>
         <button class="button" onclick="play()">Play</button>
         <button class="button" onclick ="location.href = '../index.html'">HOME</button>
-        <div class="col" id="input">
-            <span id="speed">SPEED
-                <input id="speed_input" type="range" min="20" max="300" stepDown=10 value=60>
-            </span>
-        </div>
     </div>
+    <div id="speed-menu" class="menu">
+        <label for="speed-slider">Speed:</label>
+        <input id="speed_input" type="range" min="20" max="300" stepDown=10 value=60>
+      </div>
+      
+    <div id="size-menu" class="menu">
+        <label for="size-slider">Size:</label>
+        <input type="range" id="size-slider" min="5" max="50" step=1 value=20>
+      </div>
     <script src="selection.js"></script>
 </body>
 </html>
