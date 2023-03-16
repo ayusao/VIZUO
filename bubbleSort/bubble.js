@@ -1,28 +1,34 @@
 const defaultArraySize = 20;
 
-
 let arraySize = defaultArraySize;
 let array = [];
 
 let sortingProcess;
 
-initialize();
+initialize(arraySize);
 let delay = 260;
 let delayElement = document.querySelector('#speed_input');
+let sizeElement = document.querySelector('#size-slider');
 
 delayElement.addEventListener('input', function(){
-    delay = 320 - parseInt(delayElement.value);//the more the slider goes right, lesser the delay value ie faster the speed
+    delay = 320 - parseInt(delayElement.value); //the more the slider goes right, lesser the delay value ie faster the speed
+});
+
+sizeElement.addEventListener('input', function(){
+    arraySize = parseInt(sizeElement.value);
+    initialize(arraySize);
 });
 
 // for generating random values
-function initialize() {
+function initialize(size) {
   // Stop any ongoing sorting process
   if (sortingProcess) {
     clearTimeout(sortingProcess);
   }
 
   // Generate a new array of random values
-  for (var i = 0; i < arraySize; i++) {
+  array = [];
+  for (var i = 0; i < size; i++) {
     array[i] = Math.random();
   }
   
@@ -82,12 +88,3 @@ function showbars(indices) {
     container.appendChild(bar);
   }
 }
-
-function onSizeSliderChange(event) {
-  arraySize = Number(event.target.value);
-  initialize();
-}
-
-const sizeSlider = document.getElementById("size-slider");
-sizeSlider.addEventListener("input", onSizeSliderChange);
-
