@@ -42,6 +42,7 @@ function initialize(size = arraySize) {
 
 
 function play() {
+  sizeElement.disabled = true;
   const copyarray = [...array];
   const swapping = bubbleSort(copyarray);
   animate(swapping);
@@ -50,6 +51,7 @@ function play() {
 function animate(swaps) {
   if (swaps.length === 0) {
     showbars();
+    sizeElement.disabled = false;
     return;
   }
 
