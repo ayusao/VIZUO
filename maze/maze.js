@@ -36,7 +36,7 @@ class Maze {
     async drawMaze() {
         maze.width = this.sizeOfMaze;
         maze.height = this.sizeOfMaze;//square maze
-        maze.style.background = "#202731";
+        maze.style.background = "#202528";
 
         currentCell.visited = true;//visit the first cell
 
@@ -57,6 +57,7 @@ class Maze {
             nextNeighbour.visited = true;
             this.stack.push(currentCell);//push current cell to stack for recursive backtracking later
             currentCell.highlightCurrentCell(this.noOfColumns);
+            playNote(400);
             currentCell.removeWalls(currentCell, nextNeighbour);
             currentCell = nextNeighbour;
             goalCell.highlightGoalCell(this.noOfColumns);
@@ -222,7 +223,7 @@ class Cell {
         let x = this.columnNumber * sizeOfMaze / noOfColumns;
         let y = this.rowNumber * sizeOfMaze / noOfRows;
 
-        context.strokeStyle = "#202731"; //to draw the walls
+        context.strokeStyle = "#202528"; //to draw the walls
         context.fillStyle = "#9e4784"; //each cell filled black
         context.lineWidth = 5;//each grid line 2pixel
 

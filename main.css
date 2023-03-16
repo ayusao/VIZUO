@@ -8,14 +8,16 @@
 }
 h1{
     text-align: center;
-    margin-top: 30px;
-    font-size: 40px;
+    font-size: 60px;
     color:beige;
-    margin-bottom: 160px;
+    margin-bottom: 80px;
+    font-family:'Courier New', Courier, monospace;
+    margin-top: 40px;
 }
+
 h2{
     text-align: center;
-    margin-top: 30px;
+    margin-top: 10px;
     font-size: 40px;
     color:beige;
 }
@@ -41,10 +43,12 @@ button {
     background-color: cadetblue;
     color: black;
 }
+
 .description{
-    margin-top: 40px;
     font-size: 20px;
     color: beige;
+    margin: 10px 150px; /*tb-lr*/
+    text-align: center;
 }
 p{
     bottom: 5%;
@@ -55,6 +59,7 @@ p{
     color:beige;
     font-size: 22px;
     cursor: pointer;
+    margin-bottom: 70px;
 }
 
 h2:hover,p:hover,h1:hover{

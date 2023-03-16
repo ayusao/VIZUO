@@ -23,19 +23,15 @@ h2{
     color:beige;
     cursor: pointer;
 }
+
 body {
     display:flex;
     align-items: center;
     justify-content: center;
     height: 100vh;
        }
- .description{
-        margin-top: 40px;
-        font-size: 20px;
-        color: beige;
-    }
 
-button {
+.btn {
     display:inline-flex;
     padding: 10px;
     border: none;
@@ -46,12 +42,8 @@ button {
     color:bisque;
     background-color: #6b5b95;
     border-color: #202528;
-    transition: background-color 0.3s;
-}
-
-.btn{
-    margin-top: 05%;
     justify-content: center;
+    transition: background-color 0.3s;
 }
 
 .btn:hover{
@@ -65,4 +57,26 @@ button {
 
 h2:hover,p:hover{
     color:cadetblue;
+}
+
+.home{
+    display:flex;
+    margin-top: 5%;
+    margin-left: 46%;
+}
+
+.select{
+    display:inline-flex;
+    justify-content: center;
+    margin-left:6%;
+    margin-top: 5%;
+}
+
+.description{
+    margin-left:6%;
+    margin-right:6%;
+    margin-top: 10%;;
+    font-size: 20px;
+    color: beige;
+    align-items: center;
 }

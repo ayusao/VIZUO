@@ -1,4 +1,4 @@
-var totalBars = 20;
+
 var sortBtn = document.getElementById("sort");
 var newArrayBtn = document.getElementById("newArray");
 var mArrayBtn = document.getElementById("sizeArray");
