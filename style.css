@@ -21,14 +21,14 @@ h2{
 p{
     position: absolute;
     padding: 10 10px;
-    bottom : 10%;
+    bottom : 20%;
     color:beige;
     font-size: 25px;
     cursor: pointer;
 }
 
 body {
-    display: flex;
+    display:flex;
     align-items: center;
     justify-content: center;
     height: 100vh;
@@ -44,6 +44,12 @@ button {
     color:bisque;
     background-color: #6b5b95;
     border-color: #202528;
+    transition: background-color 0.3s;
+}
+
+#mazebutton {
+    margin-top: 500px;
+    position: absolute;
 }
 
 .btn:hover{

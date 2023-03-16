@@ -22,6 +22,9 @@ function lead(n){
         case 7:
             location.href = 'radixSort/radixMain.html';
             break;
+        case 8: 
+            location.href = 'maze/maze.html';
+            break;
         default:
             location.href = 'shellSort/shell.html';
             break;
