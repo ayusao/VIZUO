@@ -1,3 +1,5 @@
+let flag = 1;
+
 async function insertion(){
     console.log('Insertion sort()');
     const ele = document.querySelectorAll(".bar");//all the divs with the class bar
@@ -7,6 +9,10 @@ async function insertion(){
         console.log(`${i}th loop`);
         let j = i - 1;
         let key = ele[i].style.height;
+
+        //for last elem, if it is not to be moved color it green
+        if(i==ele.length-1 && (parseInt(ele[j].style.height) <= parseInt(key)))
+            ele[i].style.background = 'green';
 
         while(j >= 0 && (parseInt(ele[j].style.height) > parseInt(key))){
             console.log('Shifting');
