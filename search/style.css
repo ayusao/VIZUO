@@ -27,6 +27,7 @@ h3{
     margin-top: 30px;
     font-size: 40px;
     color:beige;
+    cursor:pointer;
 }
 
 body {
@@ -63,6 +64,6 @@ button {
     opacity:0.6;
 }
 
-h2:hover,p:hover{
+h2:hover,p:hover, h3:hover{
     color:cadetblue;
 }
