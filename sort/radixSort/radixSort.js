@@ -1,19 +1,4 @@
 let arr = [];
-
-var speed = 1;
-document.getElementById("counting").innerText = speed;
-  
-function increment() {
-    if (speed < 4)
-    speed = speed + 1;
-    document.getElementById("counting").innerText = speed;
-}
-function decrement() {
-    if(speed > 1)
-    speed = speed - 1;
-    document.getElementById("counting").innerText = speed;
-}
-
 var totalBars = 20;
 document.getElementById("sizeCount").innerText = totalBars;
 function incrementSize() {
