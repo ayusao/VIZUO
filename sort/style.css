@@ -8,6 +8,12 @@
     box-sizing: border-box;
     background-color:#202528;
 }
+h3{
+    text-align: center;
+    margin-top: 30px;
+    font-size: 40px;
+    color:beige;
+}
 
 h2{
     position: absolute;
@@ -23,8 +29,14 @@ body {
     justify-content: center;
     height: 100vh;
        }
+ .description{
+        margin-top: 40px;
+        font-size: 20px;
+        color: beige;
+    }
 
 button {
+    display:inline-flex;
     padding: 10px;
     border: none;
     border-radius: 40px;
@@ -35,6 +47,11 @@ button {
     background-color: #6b5b95;
     border-color: #202528;
     transition: background-color 0.3s;
+}
+
+.btn{
+    margin-top: 05%;
+    justify-content: center;
 }
 
 .btn:hover{

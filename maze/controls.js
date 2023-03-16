@@ -14,6 +14,7 @@ regenerate.addEventListener("click", () => {
 home1.addEventListener("click", () => {
     console.log("Returning to home page");
     document.location.href = '../main.html';
+    document.location.href = '../main.html';
 });
 
 home2.addEventListener("click", () => {

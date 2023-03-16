@@ -1,24 +1,8 @@
 var container = document.getElementById("heapArray");
-let totalBars = 20;
-
-  
-var speed = 0.5;
-document.getElementById("counting").innerText = speed;
-  
-function increment() {
-    if (speed < 2)
-    speed = speed + 0.5;
-    document.getElementById("counting").innerText = speed;
-}
-function decrement() {
-    if(speed > 0.5)
-    speed = speed - 0.5;
-    document.getElementById("counting").innerText = speed;
-}
 
 //to create the bars
-function getArray() {
-    for(var i=0;i<totalBars;i++)
+function getArray(m) {
+    for(var i=0;i<m;i++)
     {
         var randomValue = Math.ceil(Math.random()*100);
 
@@ -40,8 +24,8 @@ function getArray() {
 //to create the index at bottom of the bars
 var count_container  = document.getElementById("count");
 
-function getIndex() {
-    for(var i=0;i<totalBars;i++)
+function getIndex(m) {
+    for(var i=0;i<m;i++)
     {
         var arrayElement2 = document.createElement("div");
 
@@ -157,21 +141,11 @@ async function Heapify(n, i) {
     }
     blocks[0].style.backgroundColor = "rgb(26, 129, 26)";
     indexBox[0].style.backgroundColor = "rgb(26, 129, 26)";
+    enableNewArray();
   }
 
-  function newRandom(){
-    location.reload();
-  }
-
- getArray();
- getIndex();
-
-
-
-function play()
-{
-  HeapSort(totalBars);
-}
+  getArray(totalBars);
+  getIndex(totalBars);
 
 let audioCtx = null;
 

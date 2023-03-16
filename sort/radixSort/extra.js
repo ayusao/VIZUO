@@ -1,4 +1,3 @@
-
 var totalBars = 20;
 var sortBtn = document.getElementById("sort");
 var newArrayBtn = document.getElementById("newArray");
@@ -13,6 +12,7 @@ function increment() {
     speed = speed + 1;
     document.getElementById("counting").innerText = speed;
 }
+
 function decrement() {
     if(speed > 1)
     speed = speed - 1;
