@@ -134,6 +134,8 @@ async function linearSearch(array)
   {
     await timeDelay(delay);
     bars[i].style.backgroundColor="yellow";
+    playNote(200+i*200);
+    playNote(800-i*100);
     await timeDelay(delay);
      value=array[i];
      if(value==num)
@@ -141,6 +143,7 @@ async function linearSearch(array)
       pos=i;
       await timeDelay(delay);
       bars[i].style.backgroundColor="red";
+      playNote(400);
       await timeDelay(delay);
       for(let j=i+1;j<bars.length;j++)
       {
@@ -157,6 +160,8 @@ async function linearSearch(array)
   }
   if(pos==-1)
   {
+    playNote(900);
+    playNote(900);
     output.innerHTML="Element Not Found";
   }
 }
@@ -183,3 +188,25 @@ search_btn.addEventListener("click",async function(){
 generateArray(numOfBars);
 generateBar(unsortedArray);
 displayBarPosition(unsortedArray);
+
+let audioCtx = null;
+
+function playNote(freq)
+{
+    if(audioCtx==null)
+    {
+        audioCtx= new(AudioContext||
+            webkitAudioContext ||
+            window.webkitAudioContext)();
+    }
+    const dur = 0.1;
+    const osc = audioCtx.createOscillator();
+    osc.frequency.value = freq;
+    osc.start();
+    osc.stop(audioCtx.currentTime+dur);
+    const node = audioCtx.createGain();
+    node.gain.value = 0.05;
+
+    osc.connect(node);
+    node.connect(audioCtx.destination);
+}

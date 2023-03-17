@@ -162,6 +162,7 @@ async function binarySearch(array){
   {
     let midd=Math.floor((start+end)/2);
     await  timeDelay(delay);
+    playNote(500);
     bars[midd].style.backgroundColor="yellow";
     await timeDelay(delay);
     //let value=Number(bars[midd].childNodes[0].innerHTML);
@@ -174,7 +175,9 @@ async function binarySearch(array){
     if(value==num)
     {
       pos=midd;
+      playNote(400);
       await timeDelay(delay);
+      playNote(400);
       bars[midd].style.backgroundColor="red";
       for(i=0;i<midd;i++)
       {
@@ -197,6 +200,7 @@ async function binarySearch(array){
       end=midd-1;
       await timeDelay(delay);
       bars[midd].style.backgroundColor="green";
+      playNote(200+start*200);
       await timeDelay(delay);
       for(i=midd;i<bars.length;i++)
       {
@@ -210,6 +214,7 @@ async function binarySearch(array){
       start=midd+1;
       await timeDelay(delay);
       bars[midd].style.backgroundColor="green";
+      playNote(200+start*200);
       await timeDelay(delay);
       for(i=0;i<=midd;i++)
       {
@@ -222,6 +227,8 @@ async function binarySearch(array){
   if(pos==-1)
   {
     output.innerHTML="Element Not Found";
+    playNote(900);
+    playNote(900);
   }
 }
 
@@ -252,4 +259,24 @@ sortedArray=shellSort(unsortedArray);
 generateBar(sortedArray);
 displayBarPosition(numOfBars);
 
+let audioCtx = null;
 
+function playNote(freq)
+{
+    if(audioCtx==null)
+    {
+        audioCtx= new(AudioContext||
+            webkitAudioContext ||
+            window.webkitAudioContext)();
+    }
+    const dur = 0.1;
+    const osc = audioCtx.createOscillator();
+    osc.frequency.value = freq;
+    osc.start();
+    osc.stop(audioCtx.currentTime+dur);
+    const node = audioCtx.createGain();
+    node.gain.value = 0.05;
+
+    osc.connect(node);
+    node.connect(audioCtx.destination);
+}
