@@ -6,6 +6,7 @@ const minValue=5;
 let unsortedArray=[];
 let delay=300;
 let delayElement = document.querySelector('#speed_input');
+let arraySize=document.querySelector("#array_size")
 let search_btn=document.getElementById("search_btn");
 let new_array_btn=document.getElementById("new_array_btn");
 
@@ -17,6 +18,41 @@ function deleteChild(){
 delayElement.addEventListener('input', function(){
   delay = 320 - parseInt(delayElement.value);//the more the slider goes right, lesser the delay value ie faster the speed
 });
+
+arraySize.addEventListener('input',function(){
+  unsortedArray=[];
+  container.style.width=`${(598/20)*arraySize.value}px`;
+  positionContainer.style.width=`${(598/20)*arraySize.value}px`;
+  numOfBars=parseInt(arraySize.value);
+  generateArray(numOfBars);
+  generateBar(unsortedArray);
+  displayBarPosition(unsortedArray);
+});
+
+function disableSearchingBtn(){
+  search_btn.style.opacity="0.4";
+  document.querySelector("#search_btn").disabled = true;
+}
+function enableSearchingBtn(){
+  search_btn.style.opacity="1";
+  document.querySelector("#search_btn").disabled = false;
+}
+
+function disableNewArrayBtn(){
+  new_array_btn.style.opacity="0.4";
+  document.querySelector("#new_array_btn").disabled = true;
+}
+function enableNewArrayBtn(){
+  new_array_btn.style.opacity="1";
+  document.querySelector("#new_array_btn").disabled = false;
+}
+
+function disableArraySizeBtn(){
+    document.querySelector("#array_size").disabled=true;
+  }
+  function enableArraySizeBtn(){
+    document.querySelector("#array_size").disabled=false;
+  }
 
 function generateRandomNum(min,max)
 {
@@ -73,13 +109,12 @@ function displayBarPosition(array)
 function timeDelay(ms){
   return new Promise((resolve)=>setTimeout(resolve,ms));
 }
-
+let output=document.getElementById("output_text");
+let output2=document.getElementById("output_text2");
+let dataOutput=document.getElementById("data_text");
 async function linearSearch(array)
 {
   let bars=document.querySelectorAll(".bar");
-  let output=document.getElementById("output_text");
-  let output2=document.getElementById("output_text2");
-  let dataOutput=document.getElementById("data_text");
 
   let num=document.getElementById("inputedData").value;
 
@@ -132,14 +167,23 @@ async function linearSearch(array)
 }
 
 new_array_btn.addEventListener("click",function(){
-  //enableSortingBtn();
- // enableArraySizeBtn();
+  enableSearchingBtn();
+  enableArraySizeBtn();
+ sortedArray=[];
+ unsortedArray=[];
  generateArray(numOfBars);
  generateBar(unsortedArray);
  displayBarPosition(unsortedArray);
+ output.innerText="";
+ output2.innerText="";
+ dataOutput.innerText="";
 });
-search_btn.addEventListener("click",function(){
-  linearSearch(unsortedArray);
+search_btn.addEventListener("click",async function(){
+  disableSearchingBtn();
+  disableNewArrayBtn();
+  disableArraySizeBtn();
+  await linearSearch(unsortedArray);
+  enableNewArrayBtn();
 });
 generateArray(numOfBars);
 generateBar(unsortedArray);

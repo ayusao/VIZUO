@@ -10,7 +10,6 @@
   text-align:center;
   margin-top:50px;
 }
-
 h1{
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   border-radius: 20%;
@@ -35,8 +34,6 @@ h1{
   bottom:0px;
   transition: 0.2s all ease;
 }
-
-
 #new_array{
   margin: 30px 6px;
   height:50px;
@@ -56,7 +53,6 @@ h1{
   position: absolute;
   height:50px;
   right:30%;
-  bottom : 100px;
   padding: 7px;
   border: none;
   border-radius: 4px;
@@ -80,7 +76,6 @@ h1{
   color:#fff;
  background-color: #6b5b95;
 }
-
 #new_array:hover{
   background-color: cadetblue;
   color: black;
@@ -95,7 +90,6 @@ h1{
 #sort_btn:active{
   opacity: 0.6;
 }
-
 #input{
   display: flex;
   padding: 10px;
@@ -103,14 +97,12 @@ h1{
   width: 400px;
   margin-top: 20px;
 }
-
 #size{
   color: #fff;
 }
 #speed{
   color: #fff;
 }
-
 #Asize{
   display: flex;
   padding: 10px;
@@ -120,7 +112,7 @@ h1{
 }
 .return:hover{
   background-color: cadetblue;
-  color: black;
+  color: black
 }
 .return:active{
   opacity: 0.6;

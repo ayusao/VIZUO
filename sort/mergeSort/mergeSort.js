@@ -24,21 +24,22 @@ arraySize.addEventListener('input',function(){
 })
 
 function disableSortingBtn(){
-  sort_btn.style.backgroundColor="grey";
+  sort_btn.style.opacity="0.4";
   document.querySelector("#sort_btn").disabled = true;
 }
 
 function enableSortingBtn(){
+  sort_btn.style.opacity="1";
   document.querySelector("#sort_btn").disabled = false;
 }
 
 function disableNewArrayBtn(){
-  new_array_btn.style.backgroundColor="grey";
+  new_array_btn.style.opacity="0.4";
   document.querySelector("#new_array").disabled = true;
 }
 
 function enableNewArrayBtn(){
-  new_array_btn.style.backgroundColor="#6b5b95";
+  new_array_btn.style.opacity="1";
   document.querySelector("#new_array").disabled = false;
 }
 
