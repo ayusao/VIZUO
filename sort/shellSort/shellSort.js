@@ -86,6 +86,8 @@ async function shellSort(array) {
                 await timeDelay(delay);
                 bars[k].style.backgroundColor = "yellow";
                 bars[i].style.backgroundColor = "yellow";
+                playNote(200+i*200);
+               // playNote(200+j*200);
                 await timeDelay(delay);
                 if (array[k] < array[i]) 
                 {
