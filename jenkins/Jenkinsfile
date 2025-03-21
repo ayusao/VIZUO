@@ -21,18 +21,19 @@ pipeline {
             }
         }
 
-        stage('Build Docker Image') {
+        stage('Build and Push Docker Image') {
+            agent {
+                docker {
+                    image 'docker:latest'
+                    args '-v /var/run/docker.sock:/var/run/docker.sock'
+                    reuseNode true
+                }
+            }
             steps {
                 script {
                     echo "Building Docker image..."
                     sh 'docker build -t $DOCKER_IMAGE .'
-                }
-            }
-        }
-
-        stage('Push Docker Image') {
-            steps {
-                script {
+                    
                     echo "Pushing Docker image to the registry..."
                     sh 'docker push $DOCKER_IMAGE'  // Optionally, push to a registry
                 }
@@ -40,6 +41,13 @@ pipeline {
         }
 
         stage('Deploy to Kubernetes') {
+            agent {
+                docker {
+                    image 'bitnami/kubectl:latest'
+                    args '-v /var/run/docker.sock:/var/run/docker.sock'
+                    reuseNode true
+                }
+            }
             steps {
                 script {
                     echo "Deploying to Kubernetes..."
