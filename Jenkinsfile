@@ -22,13 +22,13 @@ pipeline {
         }
 
         stage('Build and Push Docker Image') {
-            agent {
-                docker {
-                    image 'docker:latest'
-                    args '--privileged -v /var/run/docker.sock:/var/run/docker.sock -e HOME=/tmp'
-                    reuseNode true
-                }
-            }
+            // agent {
+            //     docker {
+            //         image 'docker:latest'
+            //         args '--privileged -v /var/run/docker.sock:/var/run/docker.sock -e HOME=/tmp'
+            //         reuseNode true
+            //     }
+            // }
             steps {
                 script {
                     echo "Building Docker image..."
